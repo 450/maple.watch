@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="icons/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+	<div class="wrapper" data-bind="foreach: applications">
+		<section>
+			<div class="info">
+				<h2 data-bind="text: name"></h2>
+				<ul data-bind="foreach: icons">
+					<li>
+						<span class="icon">
+							<img data-bind="attr: { src: 'icons/' + icon }" />
+						</span>
+						<span data-bind="text: name"></span>
+					</li>
+				</ul>
+			</div>
+			<div class="servers" data-bind="foreach: content.servers">
+				<!-- ko if: unknown == false -->
+				<article data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }">
+					<div>
+						<h3>
+							<!-- ko if: icon.charAt(0) != 'f' -->
+							<img data-bind="attr: { src: 'icons/' + icon }" />
+							<!-- /ko -->
+							<!-- ko if: icon.charAt(0) == 'f' -->
+							<i class="icon fa" data-bind="css: icon"></i>
+							<!-- /ko -->
+							<span data-bind="html: sub ? name + ' <small>' + sub + '</small>' : name"></span>
+						</h3>
+						<dl>
+							<dt>IP</dt>
+							<dd data-bind="text: address"></dd>
+							<dt>Port</dt>
+							<dd data-bind="text: port"></dd>
+						</dl>
+					</div>
+					<div class="status" data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }">
+						<div class="text" data-bind="text: status() == 'timeout' ? 'Offline' : time() > 0 ? time() < 1000 ? 'Online!' : 'Online! Slow...' : 'Checking...'"></div>
+						<div class="time" data-bind="text: time() !== '' && status() != 'timeout' ? time() + 'ms' : ''"></div>
+					</div>
+				</article>
+				<!-- /ko -->
+			</div>
+		</section>
+	</div>
+	<div class="wrapper">
+		<footer>&copy; 2015</footer>
+	</div>
+	<script type="text/javascript" src="knockout.min.js"></script>
+	<script type="text/javascript" src="checker.js"></script>
+</body>
+</html>
