@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>MapleStory Status Checker</title>
+	<link rel="icon" type="image/png" href="icons/nexon.png">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="icons/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -35,9 +36,9 @@
 						</h3>
 						<dl>
 							<dt>IP</dt>
-							<dd data-bind="text: address"></dd>
+							<dd class="address" data-bind="html: isNaN('' + address.charAt(0)) ? '<a target=\'_blank\' href=\'http' + (port == 443 ? 's' : '') + '://' + address + '\'>' + address + '</a>' : address, attr: { title: address }"></dd>
 							<dt>Port</dt>
-							<dd data-bind="text: port"></dd>
+							<dd class="port" data-bind="text: port"></dd>
 						</dl>
 					</div>
 					<div class="status" data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }">

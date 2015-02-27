@@ -157,21 +157,29 @@ h3 span {
 
 dl {
 	color: #9E9E9E;
-	display: block;
+	display: table;
 	font-size: 12px;
+	height: 16px;
+	line-height: 16px;
 	margin: 0;
-	width: 100%;
-}
-
-dt, dd {
-	display: inline;
-	margin: 0;
-	padding: 0;
+	width: 132px;
 }
 
 dt {
 	display: none;
-	font-weight: normal;
+}
+
+dd {
+	margin: 0;
+	max-width: 110px;
+	padding: 0;
+	overflow: hidden;
+	display: table-cell;
+	text-overflow: ellipsis;
+}
+
+dd.port {
+	text-align: right;
 }
 
 div.status {
@@ -217,6 +225,11 @@ article.slow {
 
 article.timeout {
 	box-shadow: 0 0 3px 1px #F44336;
+}
+
+article a {
+	color: #9E9E9E;
+	text-decoration: underline;
 }
 
 footer {

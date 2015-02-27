@@ -58,7 +58,7 @@ var PingModel = function (servers) {
 				s.status(status);
 				s.time(time);
 				s.values.push(time);
-				console.clear();
+				//console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -360,7 +360,7 @@ var checker = {
 			port: "8791",
 			interval: 5000,
 			values: [],
-		},
+		}/*,
 		{
 			icon: "fa-question",
 			name: "Unknown 1",
@@ -374,7 +374,7 @@ var checker = {
 			address: "109.234.73.44",
 			port: "8586",
 			unknown: true
-		}
+		}*/
 		]
 		)
 },
@@ -396,59 +396,152 @@ var checker = {
 	{
 		icon: "Mushroom.png",
 		name: "MapleEurope",
-		address: "109.234.76.150",
+		address: "mapleeurope.com",
 		port: "80",
 		interval: 60000
 	},
 	{
 		icon: "Nexon.png",
 		name: "NexonEU",
-		address: "109.234.76.160",
+		sub: "www",
+		address: "nexoneu.com",
 		port: "80",
 		interval: 60000
 	},
 	{
 		icon: "Nexon.png",
-		name: "NexonEU SSL",
-		address: "109.234.76.160",
+		name: "Billing",
+		address: "billing.nexoneu.com",
 		port: "443",
 		interval: 60000
 	},
 	{
 		icon: "Nexon.png",
-		name: "Forum",
-		address: "109.234.76.170",
+		name: "Passport",
+		address: "passport.nexoneu.com",
+		port: "443",
+		interval: 60000
+	},
+	{
+		icon: "Nexon.png",
+		name: "Company",
+		address: "company.nexoneu.com",
+		port: "80",
+		interval: 60000
+	},
+	{
+		icon: "Nexon.png",
+		name: "Forums",
+		address: "forum.nexoneu.com",
 		port: "80",
 		interval: 60000
 	},
 	{
 		icon: "Nexon.png",
 		name: "Support",
-		address: "109.234.76.180",
+		address: "support.nexoneu.com",
 		port: "80",
 		interval: 60000
+	},
+	{
+		icon: "fa-globe",
+		name: "Avatars",
+		sub: "MSE",
+		address: "avatar1.mapleeurope.com",
+		port: "80"
+	},
+	{
+		icon: "fa-globe",
+		name: "Images",
+		sub: "NXEU",
+		address: "msimage.nexoneu.com",
+		port: "80"
+	},
+	{
+		icon: "fa-globe",
+		name: "Cache",
+		sub: "NXEU",
+		address: "cache.nexoneu.com",
+		port: "443"
 	},
 	{
 		icon: "fa-globe",
 		name: "Admin",
-		address: "109.234.76.200",
+		sub: "NXEU",
+		address: "admin.nexoneu.com",
 		port: "80",
 		interval: 60000
 	},
 	{
 		icon: "fa-globe",
+		name: "Event",
+		sub: "NXEU",
+		address: "event.nexoneu.com",
+		port: "80"
+	},
+	{
+		icon: "fa-globe",
 		name: "API",
-		address: "109.234.76.205",
+		sub: "NXEU",
+		address: "api.nexoneu.com",
+		port: "80",
+		interval: 60000
+	},
+	/*{
+		icon: "fa-globe",
+		name: "Auth01",
+		sub: "NXEU",
+		address: "109.234.76.81",
+		port: "80",
+		interval: 60000
+	},*/
+	{
+		icon: "fa-globe",
+		name: "Auth02",
+		sub: "NXEU",
+		address: "auth02.nexoneu.com",
+		port: "80",
+		interval: 60000
+	}/*,
+	{
+		icon: "fa-globe",
+		name: "Auth03",
+		sub: "NXEU",
+		address: "109.234.76.83",
+		port: "80",
+		interval: 60000
+	},
+	{
+		icon: "fa-globe",
+		name: "Auth04",
+		sub: "NXEU",
+		address: "109.234.76.84",
+		port: "80",
+		interval: 60000
+	},
+	{
+		icon: "fa-globe",
+		name: "Auth05",
+		sub: "NXEU",
+		address: "109.234.76.85",
+		port: "80",
+		interval: 60000
+	},
+	{
+		icon: "fa-globe",
+		name: "Auth06",
+		sub: "NXEU",
+		address: "109.234.76.86",
 		port: "80",
 		interval: 60000
 	},
 	{
 		icon: "fa-question",
-		name: "Unknown 1",
-		address: "109.234.76.204",
+		name: "Auth ?",
+		address: "109.234.76.87",
 		port: "80",
-		unknown: true
-	}
+		interval: 60000
+	}*/
 	]
 	)
 },
@@ -457,18 +550,23 @@ var checker = {
 	icons: [],
 	content: new PingModel([
 	{
-		icon: "fa-external-link",
+		icon: "Mushroom.png",
 		name: "Download",
-		sub: "MSE",
-		address: "23.61.195.121",
+		address: "download.mapleeurope.com",
 		port: "80",
 		interval: 60000
 	},
 	{
-		icon: "fa-external-link",
+		icon: "Nexon.png",
+		name: "Download",
+		address: "download.nexoneu.com",
+		port: "80",
+		interval: 60000
+	},
+	{
+		icon: "Nexon.png",
 		name: "Patch",
-		sub: "NXEU",
-		address: "23.61.195.128",
+		address: "patch.nexoneu.com",
 		port: "80",
 		interval: 60000
 	}
