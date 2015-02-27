@@ -28,7 +28,7 @@ function ping(ip, callback) {
 				_that.inUse = false;
 				_that.callback('timeout', false);
 			}
-		}, 30000);
+		}, 10000);
 	}
 }
 
@@ -47,7 +47,8 @@ var PingModel = function (servers) {
 			unknown: server.unknown || false,
 			status: ko.observable('unchecked'),
 			time: ko.observable(""),
-			values: ko.observableArray()
+			values: ko.observableArray(),
+			rel: server.rel
 		});
 	});
 	self.servers = ko.observableArray(myServers);
@@ -74,6 +75,7 @@ var checker = {
 	applications: [
 	{
 		name: "MapleStory Game Servers",
+		description: "These are the MapleStory Europe game servers: the login server and each world's channel and cash shop servers.",
 		icons: [
 		{
 			icon: "Mushroom.png",
@@ -98,244 +100,13 @@ var checker = {
 		],
 		content: new PingModel([
 		{
-			icon: "Kradia.png",
-			name: "Channel 1",
-			address: "109.234.77.20",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 2",
-			address: "109.234.77.21",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 3",
-			address: "109.234.77.21",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 4",
-			address: "109.234.77.22",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 5",
-			address: "109.234.77.22",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 6",
-			address: "109.234.77.23",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 7",
-			address: "109.234.77.23",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 8",
-			address: "109.234.77.24",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 9",
-			address: "109.234.77.24",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 10",
-			address: "109.234.77.25",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 11",
-			address: "109.234.77.25",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 12",
-			address: "109.234.77.26",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 13",
-			address: "109.234.77.26",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Kradia.png",
-			name: "Channel 14",
-			address: "109.234.77.27",
-			port: "8587",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 1",
-			address: "109.234.77.31",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 2",
-			address: "109.234.77.32",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 3",
-			address: "109.234.77.32",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 4",
-			address: "109.234.77.33",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 5",
-			address: "109.234.77.33",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 6",
-			address: "109.234.77.34",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 7",
-			address: "109.234.77.34",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 8",
-			address: "109.234.77.35",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 9",
-			address: "109.234.77.35",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 10",
-			address: "109.234.77.36",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 11",
-			address: "109.234.77.36",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 12",
-			address: "109.234.77.37",
-			port: "8585",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 13",
-			address: "109.234.77.37",
-			port: "8586",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Demethos.png",
-			name: "Channel 14",
-			address: "109.234.77.38",
-			port: "8587",
-			interval: 5000,
-			values: []
-		},
-		{
-			icon: "Supreme.png",
-			name: "Channel 1",
-			address: "109.234.77.38",
-			port: "8587",
-			interval: 5000,
-			values: []
-		},
-		{
 			icon: "Mushroom.png",
 			name: "Login",
 			address: "109.234.77.11",
 			port: "8484",
 			interval: 5000,
-			values: []
+			values: [],
+			rel: "Login"
 		},
 		{
 			icon: "Kradia.png",
@@ -343,7 +114,8 @@ var checker = {
 			address: "109.234.77.13",
 			port: "8787",
 			interval: 5000,
-			values: []
+			values: [],
+			rel: "Kradia"
 		},
 		{
 			icon: "Demethos.png",
@@ -351,7 +123,8 @@ var checker = {
 			address: "109.234.77.31",
 			port: "8585",
 			interval: 5000,
-			values: []
+			values: [],
+			rel: "Demethos"
 		},
 		{
 			icon: "Supreme.png",
@@ -360,6 +133,268 @@ var checker = {
 			port: "8791",
 			interval: 5000,
 			values: [],
+			rel: "Supreme"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 1",
+			address: "109.234.77.20",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 2",
+			address: "109.234.77.21",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 3",
+			address: "109.234.77.21",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 4",
+			address: "109.234.77.22",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 5",
+			address: "109.234.77.22",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 6",
+			address: "109.234.77.23",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 7",
+			address: "109.234.77.23",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 8",
+			address: "109.234.77.24",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 9",
+			address: "109.234.77.24",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 10",
+			address: "109.234.77.25",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 11",
+			address: "109.234.77.25",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 12",
+			address: "109.234.77.26",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 13",
+			address: "109.234.77.26",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Kradia.png",
+			name: "Channel 14",
+			address: "109.234.77.27",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			rel: "Kradia"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 1",
+			address: "109.234.77.31",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 2",
+			address: "109.234.77.32",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 3",
+			address: "109.234.77.32",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 4",
+			address: "109.234.77.33",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 5",
+			address: "109.234.77.33",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 6",
+			address: "109.234.77.34",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 7",
+			address: "109.234.77.34",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 8",
+			address: "109.234.77.35",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 9",
+			address: "109.234.77.35",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 10",
+			address: "109.234.77.36",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 11",
+			address: "109.234.77.36",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 12",
+			address: "109.234.77.37",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 13",
+			address: "109.234.77.37",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Demethos.png",
+			name: "Channel 14",
+			address: "109.234.77.38",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			rel: "Demethos"
+		},
+		{
+			icon: "Supreme.png",
+			name: "Channel 1",
+			address: "109.234.77.38",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			rel: "Supreme"
 		}/*,
 		{
 			icon: "fa-question",
@@ -380,6 +415,7 @@ var checker = {
 },
 {
 	name: "Internal Sites",
+	description: "These are pages which are hosted on Nexon Europe's own 109.234.73.* servers.",
 	icons: [
 	{
 		icon: "Mushroom.png",
@@ -398,7 +434,8 @@ var checker = {
 		name: "MapleEurope",
 		address: "mapleeurope.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "mapleeu.com"
 	},
 	{
 		icon: "Nexon.png",
@@ -406,63 +443,72 @@ var checker = {
 		sub: "www",
 		address: "nexoneu.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "Nexon.png",
 		name: "Billing",
 		address: "billing.nexoneu.com",
 		port: "443",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "Nexon.png",
 		name: "Passport",
 		address: "passport.nexoneu.com",
 		port: "443",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "Nexon.png",
 		name: "Company",
 		address: "company.nexoneu.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "Nexon.png",
 		name: "Forums",
 		address: "forum.nexoneu.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "Nexon.png",
 		name: "Support",
 		address: "support.nexoneu.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "fa-globe",
 		name: "Avatars",
 		sub: "MSE",
 		address: "avatar1.mapleeurope.com",
-		port: "80"
+		port: "80",
+		rel: "mapleeu.com"
 	},
 	{
 		icon: "fa-globe",
 		name: "Images",
 		sub: "NXEU",
 		address: "msimage.nexoneu.com",
-		port: "80"
+		port: "80",
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "fa-globe",
 		name: "Cache",
 		sub: "NXEU",
 		address: "cache.nexoneu.com",
-		port: "443"
+		port: "443",
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "fa-globe",
@@ -470,14 +516,16 @@ var checker = {
 		sub: "NXEU",
 		address: "admin.nexoneu.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "fa-globe",
 		name: "Event",
 		sub: "NXEU",
 		address: "event.nexoneu.com",
-		port: "80"
+		port: "80",
+		rel: "nexoneu.com"
 	},
 	{
 		icon: "fa-globe",
@@ -485,7 +533,8 @@ var checker = {
 		sub: "NXEU",
 		address: "api.nexoneu.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	},
 	/*{
 		icon: "fa-globe",
@@ -501,7 +550,8 @@ var checker = {
 		sub: "NXEU",
 		address: "auth02.nexoneu.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	}/*,
 	{
 		icon: "fa-globe",
@@ -547,28 +597,33 @@ var checker = {
 },
 {
 	name: "External Sites",
+	description: "These are pages which are hosted on external servers.",
 	icons: [],
 	content: new PingModel([
 	{
-		icon: "Mushroom.png",
+		icon: "fa-external-link",
 		name: "Download",
+		sub: "MSE",
 		address: "download.mapleeurope.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "mapleeu.com"
 	},
 	{
-		icon: "Nexon.png",
+		icon: "fa-external-link",
 		name: "Download",
 		address: "download.nexoneu.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	},
 	{
-		icon: "Nexon.png",
+		icon: "fa-external-link",
 		name: "Patch",
 		address: "patch.nexoneu.com",
 		port: "80",
-		interval: 60000
+		interval: 60000,
+		rel: "nexoneu.com"
 	}
 	]
 	)
@@ -577,3 +632,12 @@ var checker = {
 };
 
 ko.applyBindings(checker);
+
+$(function() {
+	$('body').on('mouseover', '[data-rel], [data-for]', function() {
+		var rel = $(this).attr('data-rel') || $(this).attr('data-for');
+		$('[data-for="' + rel + '"], [data-rel="' + rel + '"]').addClass('revealed');
+	}).on('mouseout', function() {
+		$('.revealed').removeClass('revealed');
+	});
+})

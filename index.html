@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>MapleStory Status Checker</title>
-	<link rel="icon" type="image/png" href="icons/nexon.png">
+	<link rel="icon" type="image/png" href="icons/Nexon.png">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="icons/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -12,8 +12,11 @@
 		<section>
 			<div class="info">
 				<h2 data-bind="text: name"></h2>
+				<!-- ko if: description -->
+				<p data-bind="text: description"></p>
+				<!-- /ko -->
 				<ul data-bind="foreach: icons">
-					<li>
+					<li data-bind="attr: { 'data-for': name }">
 						<span class="icon">
 							<img data-bind="attr: { src: 'icons/' + icon }" />
 						</span>
@@ -23,7 +26,10 @@
 			</div>
 			<div class="servers" data-bind="foreach: content.servers">
 				<!-- ko if: unknown == false -->
-				<article data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }">
+				<!-- ko if: name == "Channel 1" -->
+				<br>
+				<!-- /ko -->
+				<article data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }, attr: { 'data-rel': rel }">
 					<div>
 						<h3>
 							<!-- ko if: icon.charAt(0) != 'f' -->
@@ -51,9 +57,10 @@
 		</section>
 	</div>
 	<div class="wrapper">
-		<footer>&copy; 450.github.io/mse 2015; All Rights Reserved</footer>
+		<footer>&copy; 450.github.io/mse 2015<br>All Rights Reserved</footer>
 	</div>
 	<script type="text/javascript" src="knockout.min.js"></script>
+	<script type="text/javascript" src="jquery.min.js"></script>
 	<script type="text/javascript" src="checker.js"></script>
 </body>
 </html>

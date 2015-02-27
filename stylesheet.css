@@ -1,5 +1,4 @@
 html, body {
-	height: 100%;
 	margin: 0;
 }
 
@@ -20,7 +19,7 @@ div.wrapper {
 }
 
 section {
-	background: #ECEFF1;
+	background: #E0E0E0;
 	margin: 10px 0;
 	padding-left: 140px;
 	position: relative;
@@ -31,7 +30,8 @@ div.info {
 	background: #607D8B;
 	border: 1px solid #37474F;
 	border-right-width: 9px;
-	box-shadow: 5px 5px 4px 0px #9E9E9E;
+	/*box-shadow: 5px 5px 4px 0px #9E9E9E;*/
+	box-shadow: 5px 0 4px 0px #9E9E9E;
 	box-sizing: border-box;
 	color: #fff;
 	height: 100%;
@@ -47,6 +47,11 @@ div.info h2 {
 	font-size: 16px;
 	font-weight: normal;
 	margin: 0;
+}
+
+div.info p {
+	color: #E0E0E0;
+	font-size: 11px;
 }
 
 div.info ul {
@@ -96,8 +101,8 @@ div.info span.icon img {
 }
 
 div.servers {
-	background: #fff;
-	box-shadow: 5px 5px 4px 0px #9E9E9E;
+	/*background: #fff;
+	box-shadow: 5px 5px 4px 0px #9E9E9E;*/
 	display: block;
 	font-size: 0;
 	margin: 0;
@@ -115,6 +120,16 @@ article {
 	position: relative;
 	width: 132px;
 }
+
+article.revealed,
+div.info ul li.revealed {
+	background: #FFF9C4;
+}
+
+div.info ul li.revealed span {
+	color: #000;
+}
+
 
 article div.sparklines {
 	display: block;
@@ -232,9 +247,15 @@ article a {
 	text-decoration: underline;
 }
 
+article a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
 footer {
 	color: #546E7A;
-	font-size: 14px;
+	font-size: 12px;
+	margin: 20px 0;
 	text-align: center;
 }
 
