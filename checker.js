@@ -8,12 +8,14 @@ function ping(ip, callback) {
 		this.start = 0;
 		var _that = this;
 		this.img = new Image();
-		this.img.onload = function () {
+		this.img.onload = function (e) {
+			console.log("Loaded", e);
 			window.clearInterval(_that.timer);
 			_that.inUse = false;
 			_that.callback('responded', +(new Date()) - _that.start);
 		};
-		this.img.onerror = function (e) {
+		this.img.onerror = function (e, error, errorThrown) {
+				console.log("Errored", e, error, errorThrown);
 			if (_that.inUse) {
 				window.clearInterval(_that.timer);
 				_that.inUse = false;
@@ -22,8 +24,14 @@ function ping(ip, callback) {
 			}
 		};
 		this.start = +(new Date());
+		try {
 		this.img.src = "http://" + ip + "/?cachebreaker="+(+(new Date()));
+		}
+		catch (e) {
+			console.log("Exception", e);
+		}
 		this.timer = setTimeout(function () {
+			console.log("Timed out");
 			if (_that.inUse) {
 				_that.inUse = false;
 				_that.callback('timeout', false);
@@ -604,7 +612,7 @@ var checker = {
 		icon: "fa-external-link",
 		name: "Download",
 		sub: "MSE",
-		address: "download.mapleeurope.com",
+		address: "12.34.56.78",
 		port: "80",
 		interval: 60000,
 		rel: "mapleeu.com"
@@ -634,10 +642,23 @@ var checker = {
 ko.applyBindings(checker);
 
 $(function() {
-	$('body').on('mouseover', '[data-rel], [data-for]', function() {
-		var rel = $(this).attr('data-rel') || $(this).attr('data-for');
-		$('[data-for="' + rel + '"], [data-rel="' + rel + '"]').addClass('revealed');
-	}).on('mouseout', function() {
+	$('body').on('mouseenter', '[data-rel], [data-for]', function() {
+		$('.revealed').removeClass('revealed');
+
+		var rel = $(this).attr('data-rel') || $(this).attr('data-for'),
+				isRel = !!$(this).attr('data-rel');
+
+		if (isRel) {
+			$('[data-for="' + rel + '"]').addClass('revealed');
+			$(this).addClass('revealed');
+		}
+		else
+			$('[data-for="' + rel + '"], [data-rel="' + rel + '"]').addClass('revealed');
+	}).on('mouseleave',  'li, div.server', function() {
 		$('.revealed').removeClass('revealed');
 	});
 })
+
+$( document ).ajaxError(function( event, jqxhr, settings, exception ) {
+    console.log("AJAX Error", jqxhr);
+});

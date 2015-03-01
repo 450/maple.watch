@@ -77,6 +77,7 @@ div.info ul li {
 	display: table;
 	margin: -1px 0 0 0;
 	table-layout: fixed;
+	transition: 0.2s;
 	width: 100%;
 }
 
@@ -85,6 +86,7 @@ div.info span {
 	display: table-cell;
 	padding: 4px 6px 4px 3px;
 	text-align: left;
+	transition: 0.2s;
 	vertical-align: middle;
 }
 
@@ -118,18 +120,9 @@ article {
 	margin: 4px;
 	padding: 10px;
 	position: relative;
+	transition: 0.2s;
 	width: 132px;
 }
-
-article.revealed,
-div.info ul li.revealed {
-	background: #FFF9C4;
-}
-
-div.info ul li.revealed span {
-	color: #000;
-}
-
 
 article div.sparklines {
 	display: block;
@@ -240,6 +233,31 @@ article.slow {
 
 article.timeout {
 	box-shadow: 0 0 3px 1px #F44336;
+}
+
+article.revealed {
+	background: #E3F2FD;
+}
+
+article.revealed dl,
+article.revealed a {
+	color: #444;
+}
+
+article.revealed.ok {
+	background: #E8F5E9;
+}
+
+article.revealed.slow {
+	background: #FFF3E0;
+}
+
+article.revealed.timeout {
+	background: #FFEBEE;
+}
+
+div.info ul li.revealed {
+	background: #37474F;
 }
 
 article a {
