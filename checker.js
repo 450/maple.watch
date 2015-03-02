@@ -128,8 +128,8 @@ var checker = {
 		{
 			icon: "Demethos.png",
 			name: "Cash Shop",
-			address: "109.234.77.31",
-			port: "8585",
+			address: "109.234.77.13",
+			port: "8788",
 			interval: 5000,
 			values: [],
 			rel: "Demethos"
@@ -399,7 +399,7 @@ var checker = {
 			icon: "Supreme.png",
 			name: "Channel 1",
 			address: "109.234.77.38",
-			port: "8587",
+			port: "8597",
 			interval: 5000,
 			values: [],
 			rel: "Supreme"
