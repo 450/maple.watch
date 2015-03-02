@@ -7,6 +7,38 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+input, select, textarea, button {
+	font-family: 'Open Sans', sans-serif;
+}
+
+button {
+	background: #37474F;
+	border: none;
+	color: #E0E0E0;
+	cursor: pointer;
+	padding: 4px 6px;
+	transition: 0.1s;
+}
+
+button.plain {
+	background: transparent;
+	color: #37474F;
+}
+
+button.cancel {
+	color: #B71C1C;;
+}
+
+button:hover,
+button:focus {
+	background: #607D8B;
+}
+
+button.plain:hover,
+button.plain:focus {
+	background: #fff;
+}
+
 div.wrapper {
 	/*background: #fff;
 	box-shadow: 0 0 3px 1px #9E9E9E;
@@ -18,9 +50,208 @@ div.wrapper {
 	z-index: 2;
 }
 
-section {
+nav {
+	display: table;
+	width: 100%;
+}
+
+nav div {
+	display: table-cell;
+	vertical-align: top;
+}
+
+nav div ul {
+	display: inline-table;
+	list-style-type: none;
+	margin: 0 0 0 10px;
+	padding: 0;
+}
+
+nav div ul li {
+	display: table-cell;
+}
+
+nav div.title {
+	font-weight: 600;
+	padding-right: 16px;
+	width: 128px;
+}
+
+nav div.title span {
+	background: #37474F;
+	box-shadow: 5px 0 4px 0px #9E9E9E;
+	color: #fff;
+	display: inline-block;
+	padding: 4px 14px;
+	text-align: center;
+	width: 112px;
+}
+
+nav div.select span.select-text {
+	font-size: 12px;
+}
+
+nav div.select a {
+	background: transparent;
+	color: #333;
+	display: block;
+	font-size: 12px;
+	margin: 0 4px;
+	padding: 4px 6px;
+	text-decoration: none;
+}
+
+nav div.select li.active a {
+	background: #fff;
+	box-shadow: 0 0 3px 1px #9E9E9E;
+}
+
+nav div.select a img {
+	height: 20px;
+	vertical-align: top;
+	width: 20px;
+}
+
+nav div.select a span {
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: top;
+}
+
+nav div.settings {
+	font-size: 14px;
+	text-align: right;
+}
+
+nav div.settings span {
+	background: #37474F;
+	color: #E0E0E0;
+	cursor: pointer;
+	display: inline-block;
+	padding: 2px 4px;
+	transition: 0.2s;
+}
+
+nav div.settings span:hover,
+nav div.settings span:focus {
+	background: #607D8B;
+}
+
+#controls div.content {
+	border: 1px solid #BDBDBD;
+	border-left: 0;
+	padding: 12px;
+	position: relative;
+	z-index: 1;
+}
+
+#controls footer {
+	cursor: default;
+	margin: -11px 0 0;
+	position: relative;
+	text-align: right;
+	z-index: 2;
+}
+
+#controls footer span {
+	background: #E0E0E0;
+	border: 1px solid #BDBDBD;
+	display: inline-block;
+}
+
+#controls article {
+	background: #fff;
+	box-shadow: 0 0 3px 1px #9E9E9E;
+	display: inline-block;
+	margin: 4px;
+	padding: 10px;
+	vertical-align: top;
+	width: 342px;
+}
+
+#controls article label {
+	display: table;
+	width: 100%;
+}
+
+#controls article.multiple label {
+	border-bottom: 1px dashed #E0E0E0;
+	margin-bottom: 8px;
+}
+
+#controls article.multiple label:last-child {
+	border-bottom: none;
+	margin-bottom: 0;
+}
+
+#controls label span {
+	cursor: pointer;
+	display: table-cell;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 30px;
+	margin-right: 10px;
+	table-layout: fixed;
+	width: 188px;
+}
+
+#controls label span.control {
+	text-align: right;
+	width: 150px;
+}
+
+#controls label input {
+	display: inline-block;
+	padding: 4px 6px;
+	max-width: 138px;
+}
+
+#controls label input[type="text"] {
+	width: 128px;
+}
+
+#controls article footer {
+	border: none;
+	color: #546E7A;
+	display: block;
+	font-size: 12px;
+	margin: 10px 0 0;
+	text-align: left;
+}
+
+#controls button {
+	margin: 4px;
+}
+
+#controls button[disabled] {
+	background: transparent;
+	color: #333;
+	cursor: default;
+	opacity: 0.75;
+}
+
+#controls button[disabled]:hover,
+#controls button[disabled]:focus {
+	background: transparent;
+}
+
+div.wrapper h1 {
+	font-weight: 300;
+	line-height: 30px;
+	vertical-align: top;
+}
+
+div.wrapper h1 img {
+	height: 32px;
+	width: 32px;
+	vertical-align: top;
+}
+
+div.wrapper section {
 	background: #E0E0E0;
 	margin: 10px 0;
+	min-height: 50px;
 	padding-left: 140px;
 	position: relative;
 	z-index: 2;
@@ -108,12 +339,13 @@ div.servers {
 	display: block;
 	font-size: 0;
 	margin: 0;
+	min-height: 76px;
 	padding: 12px;
 	position: relative;
 	z-index: 3;
 }
 
-article {
+div.servers article {
 	background: #fff;
 	box-shadow: 0 0 3px 1px #9E9E9E;
 	display: inline-block;
@@ -124,12 +356,12 @@ article {
 	width: 132px;
 }
 
-article div.sparklines {
+div.servers article div.sparklines {
 	display: block;
 	height: 20px;
 }
 
-article i.icon {
+div.servers article i.icon {
 	color: #757575;
 	height: 20px;
 	line-height: 20px;
@@ -139,15 +371,15 @@ article i.icon {
 	width: 20px;
 }
 
-article i.icon.fa-external-link {
+div.servers article i.icon.fa-external-link {
 	font-size: 18px;
 }
 
-article span small {
+div.servers article span small {
 	font-weight: lighter;
 }
 
-article img {
+div.servers article img {
 	height: 20px;
 	width: 20px;
 }
@@ -211,40 +443,40 @@ div.status .time {
 	text-align: right;
 }
 
-article.ok div.status {
+div.servers article.ok div.status {
 	background: #4CAF50;
 }
 
-article.slow div.status {
+div.servers article.slow div.status {
 	background: #EF6C00;
 }
 
-article.timeout div.status {
+div.servers article.timeout div.status {
 	background: #F44336;
 }
 
-article.ok {
+div.servers article.ok {
 	box-shadow: 0 0 3px 1px #4CAF50;
 }
 
-article.slow {
+div.servers article.slow {
 	box-shadow: 0 0 3px 1px #EF6C00;
 }
 
-article.timeout {
+div.servers article.timeout {
 	box-shadow: 0 0 3px 1px #F44336;
 }
 
-article.revealed {
+div.servers article.revealed {
 	background: #E3F2FD;
 }
 
-article.revealed dl,
-article.revealed a {
+div.servers article.revealed dl,
+div.servers article.revealed a {
 	color: #444;
 }
 
-article.revealed {
+div.servers article.revealed {
 	background: #FFF9C4;
 }
 
@@ -257,12 +489,12 @@ article a {
 	text-decoration: underline;
 }
 
-article a:hover {
+div.servers article a:hover {
 	color: #333;
 	text-decoration: underline;
 }
 
-footer {
+footer#footer {
 	color: #546E7A;
 	font-size: 12px;
 	margin: 20px 0;
