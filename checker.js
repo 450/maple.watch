@@ -9,13 +9,11 @@ function ping(ip, callback) {
 		var _that = this;
 		this.img = new Image();
 		this.img.onload = function (e) {
-			console.log("Loaded", e);
 			window.clearInterval(_that.timer);
 			_that.inUse = false;
 			_that.callback('responded', +(new Date()) - _that.start);
 		};
 		this.img.onerror = function (e, error, errorThrown) {
-				console.log("Errored", e, error, errorThrown);
 			if (_that.inUse) {
 				window.clearInterval(_that.timer);
 				_that.inUse = false;
@@ -24,14 +22,8 @@ function ping(ip, callback) {
 			}
 		};
 		this.start = +(new Date());
-		try {
 		this.img.src = "http://" + ip + "/?cachebreaker="+(+(new Date()));
-		}
-		catch (e) {
-			console.log("Exception", e);
-		}
 		this.timer = setTimeout(function () {
-			console.log("Timed out");
 			if (_that.inUse) {
 				_that.inUse = false;
 				_that.callback('timeout', false);
@@ -67,7 +59,7 @@ var PingModel = function (servers) {
 				s.status(status);
 				s.time(time);
 				s.values.push(time);
-				//console.clear();
+				console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -612,7 +604,7 @@ var checker = {
 		icon: "fa-external-link",
 		name: "Download",
 		sub: "MSE",
-		address: "12.34.56.78",
+		address: "download.mapleeurope.com",
 		port: "80",
 		interval: 60000,
 		rel: "mapleeu.com"
@@ -658,7 +650,3 @@ $(function() {
 		$('.revealed').removeClass('revealed');
 	});
 })
-
-$( document ).ajaxError(function( event, jqxhr, settings, exception ) {
-    console.log("AJAX Error", jqxhr);
-});
