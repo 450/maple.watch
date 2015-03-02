@@ -244,16 +244,8 @@ article.revealed a {
 	color: #444;
 }
 
-article.revealed.ok {
-	background: #E8F5E9;
-}
-
-article.revealed.slow {
-	background: #FFF3E0;
-}
-
-article.revealed.timeout {
-	background: #FFEBEE;
+article.revealed {
+	background: #FFF9C4;
 }
 
 div.info ul li.revealed {

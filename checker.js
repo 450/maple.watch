@@ -654,7 +654,7 @@ $(function() {
 		}
 		else
 			$('[data-for="' + rel + '"], [data-rel="' + rel + '"]').addClass('revealed');
-	}).on('mouseleave',  'li, div.server', function() {
+	}).on('mouseleave',  'li, div.servers', function() {
 		$('.revealed').removeClass('revealed');
 	});
 })
