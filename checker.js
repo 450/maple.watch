@@ -75,7 +75,7 @@ var PingModel = function (servers) {
 	var myServers = [];
 	var offset = 1;
 	ko.utils.arrayForEach(servers, function (server) {
-		if (!server.isMapleStoryGameServer || server.rel == subSelection || server.rel == "Login") {
+		if (!server.isMapleStoryGameServer || server.rel == subSelection || (server.rel == "Login" && selected != 'GMS')) {
 			myServers.push({
 				icon: server.icon,
 				name: server.name,
@@ -703,6 +703,11 @@ var checker = {
 					icon: "Bera.png",
 					name: "Bera",
 					sub: "World"
+				},
+				{
+					icon: "Broa.png",
+					name: "Broa",
+					sub: "World"
 				}
 			],
 			[
@@ -1265,6 +1270,336 @@ var checker = {
 					values: [],
 					isMapleStoryGameServer: true,
 					rel: "Bera"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 1",
+					address: "8.31.99.154",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 2",
+					address: "8.31.99.225",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 3",
+					address: "8.31.99.225",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 4",
+					address: "8.31.99.226",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 5",
+					address: "8.31.99.226",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 6",
+					address: "8.31.99.226",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 7",
+					address: "8.31.99.239",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 8",
+					address: "8.31.99.227",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 9",
+					address: "8.31.99.227",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 10",
+					address: "8.31.99.227",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 11",
+					address: "8.31.99.228",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 12",
+					address: "8.31.99.228",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 13",
+					address: "8.31.99.228",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 14",
+					address: "8.31.99.229",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 15",
+					address: "8.31.99.229",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 16",
+					address: "8.31.99.229",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 17",
+					address: "8.31.99.230",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 18",
+					address: "8.31.99.230",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 19",
+					address: "8.31.99.230",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Channel 20",
+					address: "8.31.99.239",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Cash Shop",
+					address: "8.31.99.192",
+					port: "8786",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Monster Life",
+					address: "8.31.99.205",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "Broa.png",
+					name: "Evolution Lab",
+					address: "8.31.99.197",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Broa"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Star Planet 1",
+					address: "8.31.99.241",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Star Planet 2",
+					address: "8.31.99.241",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Star Planet 3",
+					address: "8.31.99.241",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Star Planet 4",
+					address: "8.31.99.241",
+					port: "8588",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Star Planet 5",
+					address: "8.31.99.242",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Star Planet 6",
+					address: "8.31.99.242",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Star Planet 7",
+					address: "8.31.99.242",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Star Planet 8",
+					address: "8.31.99.242",
+					port: "8588",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Mini Games 1",
+					address: "8.31.99.243",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "StarPlanet.png",
+					name: "Mini Games 2",
+					address: "8.31.99.243",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
 				}
 			]
 		)
@@ -1344,7 +1679,7 @@ function GetDefaultSubSelectionForVersion(version) {
 		case 'EMS':
 			return 'Kradia';
 		case 'GMS':
-			return 'Scania';
+			return 'Login';
 		default:
 			return;
 	}

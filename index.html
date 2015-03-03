@@ -131,7 +131,7 @@
 			<div class="info">
 				<h2 data-bind="text: name"></h2>
 				<ul data-bind="foreach: icons">
-					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && name != 'Login' }, click: function() { if ($parent.name == 'Game Servers' && name != 'Login') { window.stop(); window.location.hash = '#' + $root.selected() + '-' + name; window.location.reload(); } }">
+					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS')) }, click: function() { if ($parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS'))) { window.stop(); window.location.hash = '#' + $root.selected() + '-' + name; window.location.reload(); } }">
 						<span class="icon">
 							<img data-bind="attr: { src: 'icons/' + icon }" />
 						</span>
@@ -144,8 +144,8 @@
 			</div>
 			<div class="servers" data-bind="foreach: content().servers">
 				<!-- ko if: unknown == false -->
-				<!-- ko if: $parent.name != "Game Servers" || rel == $root.subSelection() || rel == "Login" -->
-				<!-- ko if: name == "Channel 1" || name == "Cash Shop" -->
+				<!-- ko if: $parent.name != "Game Servers" || rel == $root.subSelection() || (rel == 'Login' || (rel != 'Login' && $root.selected() == 'GMS')) -->
+				<!-- ko if: name == "Channel 1" || name == "Cash Shop" || name == "Star Planet 1" -->
 				<br>
 				<!-- /ko -->
 				<article data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }, attr: { 'data-rel': rel }">
