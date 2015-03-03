@@ -19,7 +19,7 @@
 				<span class="select-text">Select a MapleStory version:</span>
 				<ul data-bind="foreach: versions">
 					<li data-bind="css: { active: abbr == $root.selected() }">
-						<a href="#" role="button" data-bind="attr: { title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { window.stop(); window.location.hash = '#' + abbr; window.location.reload(); } else { return false; } }">
+						<a href="#" role="button" data-bind="attr: { title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { window.stop(); window.location.hash = '#' + abbr + '-' + $root.getDefaultSubSelectionForVersion(abbr); window.location.reload(); } else { return false; } }">
 							<img data-bind="attr: { src: 'icons/' + icon }" />
 							<span class="short-name" data-bind="text: short"></span>
 							<span class="abbr-name" data-bind="text: abbr"></span>
@@ -104,9 +104,15 @@
 	<!-- ko if: abbr == $root.selected() -->
 	<div class="wrapper">
 		<h1>
-			<img data-bind="attr: { src: 'icons/' + icon }" />
+			<img data-bind="attr: { src: 'icons/Mushroom.png' }" />
 			<span data-bind="html: name"></span>
 		</h1>
+		<h2>
+			<small>Selected world:</small>
+			<img data-bind="attr: { src: 'icons/' + $root.subSelection() + '.png' }" />
+			<span data-bind="html: $root.subSelection()"></span>
+		</h2>
+		<p>To select a different world, click on its name in the Game Servers sidebar!</p>
 	</div>
 	<!-- ko if: applications.length == 0 -->
 	<div class="wrapper">
@@ -124,21 +130,22 @@
 		<section>
 			<div class="info">
 				<h2 data-bind="text: name"></h2>
-				<!-- ko if: description -->
-				<p data-bind="text: description"></p>
-				<!-- /ko -->
 				<ul data-bind="foreach: icons">
-					<li data-bind="attr: { 'data-for': name }">
+					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && name != 'Login' }, click: function() { if ($parent.name == 'Game Servers' && name != 'Login') { window.stop(); window.location.hash = '#' + $root.selected() + '-' + name; window.location.reload(); } }">
 						<span class="icon">
 							<img data-bind="attr: { src: 'icons/' + icon }" />
 						</span>
 						<span data-bind="text: name"></span>
 					</li>
 				</ul>
+				<!-- ko if: description -->
+				<p data-bind="text: description"></p>
+				<!-- /ko -->
 			</div>
 			<div class="servers" data-bind="foreach: content().servers">
 				<!-- ko if: unknown == false -->
-				<!-- ko if: name == "Channel 1" -->
+				<!-- ko if: $parent.name != "Game Servers" || rel == $root.subSelection() || rel == "Login" -->
+				<!-- ko if: name == "Channel 1" || name == "Cash Shop" -->
 				<br>
 				<!-- /ko -->
 				<article data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }, attr: { 'data-rel': rel }">
@@ -160,10 +167,11 @@
 						</dl>
 					</div>
 					<div class="status" data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }">
-						<div class="text" data-bind="text: status() == 'timeout' ? 'No Response' : time() > 0 ? time() < 1000 ? 'Online!' : 'Online! Slow...' : 'Checking...'"></div>
+						<div class="text" data-bind="text: status() == 'timeout' ? 'No Response' : time() > 0 ? (time() > $root.settings.pingOffset() > 0 ? time() - $root.settings.pingOffset() : 0) < 1000 ? 'Online!' : 'Online! Slow...' : 'Checking...'"></div>
 						<div class="time" data-bind="text: time() !== '' && status() != 'timeout' ? (time() > $root.settings.pingOffset() > 0 ? time() - $root.settings.pingOffset() : 0) + 'ms' : ''"></div>
 					</div>
 				</article>
+				<!-- /ko -->
 				<!-- /ko -->
 			</div>
 		</section>
