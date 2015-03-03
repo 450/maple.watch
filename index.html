@@ -19,7 +19,7 @@
 				<span class="select-text">Select a MapleStory version:</span>
 				<ul data-bind="foreach: versions">
 					<li data-bind="css: { active: abbr == $root.selected() }">
-						<a href="#" role="button" data-bind="attr: { title: name }, click: function() { window.stop(); window.location.hash = '#' + abbr; window.location.reload(); }">
+						<a href="#" role="button" data-bind="attr: { title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { window.stop(); window.location.hash = '#' + abbr; window.location.reload(); } else { return false; } }">
 							<img data-bind="attr: { src: 'icons/' + icon }" />
 							<span data-bind="text: short"></span>
 						</a>
@@ -107,6 +107,18 @@
 			<span data-bind="html: name"></span>
 		</h1>
 	</div>
+	<!-- ko if: applications.length == 0 -->
+	<div class="wrapper">
+		<section>
+			<div class="info">
+				<h2>Watch This Space</h2>
+			</div>
+			<div class="servers">
+				<h2>Coming Soon!</h2>
+				<p>We haven't added <span data-bind="text: abbr"></span>'s servers yet, but we're planning on doing this really soon!</p>
+			</div>
+	</div>
+	<!-- /ko -->
 	<div class="wrapper" data-bind="foreach: applications">
 		<section>
 			<div class="info">
@@ -148,7 +160,7 @@
 					</div>
 					<div class="status" data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }">
 						<div class="text" data-bind="text: status() == 'timeout' ? 'No Response' : time() > 0 ? time() < 1000 ? 'Online!' : 'Online! Slow...' : 'Checking...'"></div>
-						<div class="time" data-bind="text: time() !== '' && status() != 'timeout' ? time() + 'ms' : ''"></div>
+						<div class="time" data-bind="text: time() !== '' && status() != 'timeout' ? (time() > $root.settings.pingOffset() > 0 ? time() - $root.settings.pingOffset() : 0) + 'ms' : ''"></div>
 					</div>
 				</article>
 				<!-- /ko -->

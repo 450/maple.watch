@@ -9,15 +9,16 @@ var checkTimeout = 5000,
 
 switch (window.location.hash) {
 	case "#EMS":
-	case "#GMS":
+	/*case "#GMS":
+	case "#JMS":
+	case "#KMS":
 	case "#MSEA":
+	case "#MS2":*/
 		selected = window.location.hash.replace('#', '');
 		break;
 	default:
 		break;
 }
-
-console.log(window.location.hash);
 
 function ping(ip, callback) {
 	if (!this.inUse) {
@@ -86,7 +87,10 @@ var PingModel = function (servers) {
 				s.status(status);
 				s.time(time);
 				s.values.push(time);
-				console.clear();
+				if (s.name == "Self") {
+					SetPingOffset(time);
+				}
+				//console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -113,6 +117,7 @@ var checker = {
 	{
 		abbr: "EMS",
 		name: "MapleStory Europe",
+		available: true,
 		icon: "Kradia.png",
 		short: "EUROPE",
 		applications: [
@@ -591,6 +596,24 @@ var checker = {
 				},
 				{
 					icon: "fa-external-link",
+					name: "CDN",
+					sub: "MSE",
+					address: "mapleeuropecdn.nexoneu.com",
+					port: "80",
+					interval: 60000,
+					rel: "nexoneu.com"
+				},
+				{
+					icon: "fa-external-link",
+					name: "CSD",
+					sub: "MSE",
+					address: "mapleeuropecsd.nexoneu.com",
+					port: "80",
+					interval: 60000,
+					rel: "nexoneu.com"
+				},
+				{
+					icon: "fa-external-link",
 					name: "Download",
 					address: "download.nexoneu.com",
 					port: "80",
@@ -613,6 +636,7 @@ var checker = {
 {
 	abbr: "GMS",
 	name: "MapleStory North America <small>(Global)</small>",
+	available: false,
 	icon: "Scania.png",
 	short: "North America (Global)",
 	applications: [
@@ -931,23 +955,44 @@ var checker = {
 	]
 },
 	{
-		abbr: "MSEA",
-		name: "MapleStory SEA <small>(SG / MY)</small>",
-		icon: "Aquila.png",
-		short: "Maple SEA SG / MY",
+		abbr: "JMS",
+		name: "MapleStory Japan <small>日本</small>",
+		available: false,
+		icon: "Galicia.png",
+		short: "日本 | Japan",
 		applications: [
 		]
 	},
 	{
 		abbr: "KMS",
 		name: "MapleStory Korea <small>(한국)</small>",
+		available: false,
 		icon: "Mushroom.png",
 		short: "한국 | Korea",
+		applications: [
+		]
+	},
+	{
+		abbr: "MSEA",
+		name: "MapleStory SEA <small>(SG / MY)</small>",
+		available: false,
+		icon: "Aquila.png",
+		short: "Maple SEA SG / MY",
+		applications: [
+		]
+	},
+	{
+		abbr: "MS2",
+		name: "MapleStory 2 CBT <small>(메이플스토리2)</small>",
+		available: false,
+		icon: "MS2Scania.png",
+		short: "MapleStory 2 CBT",
 		applications: [
 		]
 	}
 ],
 settings: {
+	pingOffset: ko.observable(0),
 	delay: ko.observable(100),
 	enableHighlight: ko.observable(true),
 	showConnection: ko.observable(true),
@@ -956,10 +1001,29 @@ settings: {
 }
 };
 
+GetPingOffset();
+
 ko.applyBindings(checker);
 
 function GetCheckTimeout() {
 	return checker.settings.timeout();
+}
+
+function GetPingOffset() {
+	return new PingModel([
+					{
+						icon: "Mushroom.png",
+						name: "Self",
+						address: "127.0.0.1",
+						port: "80",
+						interval: 5000,
+						values: [],
+						unknown: true
+					}]);
+}
+
+function SetPingOffset(offset) {
+	checker.settings.pingOffset(offset);
 }
 
 $(function() {
