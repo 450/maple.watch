@@ -565,7 +565,7 @@ footer#footer {
 
 	nav div.select ul {
 		display: table;
-		margin-top: 5px;
+		margin: 5px 0 0 0;
 		width: 100%;
 	}
 }
