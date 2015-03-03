@@ -3,12 +3,122 @@
 <head>
 	<title>MapleStory Status Checker</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf8">
 	<link rel="icon" type="image/png" href="icons/Nexon.png">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="icons/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body>
+	<div class="wrapper">
+		<nav>
+			<div class="title">
+				<span>maple.watch</span>
+			</div>
+			<div class="select">
+				<span class="select-text">Select a MapleStory version:</span>
+				<ul data-bind="foreach: versions">
+					<li data-bind="css: { active: abbr == $root.selected() }">
+						<a href="#" role="button" data-bind="attr: { title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { window.stop(); window.location.hash = '#' + abbr; window.location.reload(); } else { return false; } }">
+							<img data-bind="attr: { src: 'icons/' + icon }" />
+							<span data-bind="text: short"></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div style="display:none" class="settings">
+				<span role="button" tabindex="1">
+					<i class="fa fa-cog"></i>
+					Controls
+				</span>
+			</div>
+		</nav>
+	</div>
+	<div style="display:none" id="controls" class="wrapper">
+		<section>
+			<div class="info">
+				<h2>Controls</h2>
+				<p>Use these to adjust how the site works.</p>
+				<p>Values are stored as cookies, meaning they'll save for your next visit.</p>
+			</div>
+			<div class="content">
+				<article>
+					<label>
+						<span>Check Delay Offset <small>(ms)</small></span>
+						<span class="control">
+							<input type="number" data-bind="value: settings.delay" />
+						</span>
+					</label>
+					<footer>This number (in milliseconds) sets the delay between checking each server. The default value is 100, but you may want to increase this if you notice the ping response slowly increasing between each server.</footer>
+				</article>
+				<article>
+					<label>
+						<span>Check Timeout <small>(ms)</small></span>
+						<span class="control">
+							<input type="number" data-bind="value: settings.timeout" />
+						</span>
+					</label>
+					<footer>This number (in milliseconds) determines how long we should wait before assuming a server is offline. The higher this is, the greater chance of false positives there will be. Ideally this should be set between 1500 and 10000.</footer>
+				</article>
+				<article class="multiple">
+					<label>
+						<span>Show IPs and Ports</span>
+						<span class="control">
+							<input type="checkbox" data-bind="checked: settings.showIPPort" />
+						</span>
+					</label>
+					<label>
+						<span>Show Connection Time</span>
+						<span class="control">
+							<input type="checkbox" data-bind="checked: settings.showConnection"  />
+						</span>
+					</label>
+					<label>
+						<span>Enable Highlighting</span>
+						<span class="control">
+							<input type="checkbox" data-bind="checked: settings.enableHighlight"  />
+						</span>
+					</label>
+				</article>
+			</div>
+		</section>
+		<footer>
+			<span>
+				<button role="button" type="button" disabled>
+					<i class="fa fa-check"></i>
+					Save and Reload
+				</button>
+				<button role="button" type="button" disabled class="plain">
+					<i class="fa fa-history"></i>
+					Use Default
+				</button>
+				<button role="button" type="button" class="plain cancel">
+					<i class="fa fa-times"></i>
+					Close Controls
+				</button>
+			</span>
+		</footer>
+	</div>
+	<!-- ko foreach: versions -->
+	<!-- ko if: abbr == $root.selected() -->
+	<div class="wrapper">
+		<h1>
+			<img data-bind="attr: { src: 'icons/' + icon }" />
+			<span data-bind="html: name"></span>
+		</h1>
+	</div>
+	<!-- ko if: applications.length == 0 -->
+	<div class="wrapper">
+		<section>
+			<div class="info">
+				<h2>Watch This Space</h2>
+			</div>
+			<div class="servers">
+				<h2>Coming Soon!</h2>
+				<p>We haven't added <span data-bind="text: abbr"></span>'s servers yet, but we're planning on doing this really soon!</p>
+			</div>
+	</div>
+	<!-- /ko -->
 	<div class="wrapper" data-bind="foreach: applications">
 		<section>
 			<div class="info">
@@ -25,7 +135,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="servers" data-bind="foreach: content.servers">
+			<div class="servers" data-bind="foreach: content().servers">
 				<!-- ko if: unknown == false -->
 				<!-- ko if: name == "Channel 1" -->
 				<br>
@@ -49,16 +159,18 @@
 						</dl>
 					</div>
 					<div class="status" data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }">
-						<div class="text" data-bind="text: status() == 'timeout' ? 'Offline' : time() > 0 ? time() < 1000 ? 'Online!' : 'Online! Slow...' : 'Checking...'"></div>
-						<div class="time" data-bind="text: time() !== '' && status() != 'timeout' ? time() + 'ms' : ''"></div>
+						<div class="text" data-bind="text: status() == 'timeout' ? 'No Response' : time() > 0 ? time() < 1000 ? 'Online!' : 'Online! Slow...' : 'Checking...'"></div>
+						<div class="time" data-bind="text: time() !== '' && status() != 'timeout' ? (time() > $root.settings.pingOffset() > 0 ? time() - $root.settings.pingOffset() : 0) + 'ms' : ''"></div>
 					</div>
 				</article>
 				<!-- /ko -->
 			</div>
 		</section>
 	</div>
+	<!-- /ko -->
+	<!-- /ko -->
 	<div class="wrapper">
-		<footer>&copy; 450.github.io/mse 2015<br>All Rights Reserved</footer>
+		<footer id="footer">&copy; 450.github.io/mse 2015<br>All Rights Reserved</footer>
 	</div>
 	<script type="text/javascript" src="knockout.min.js"></script>
 	<script type="text/javascript" src="jquery.min.js"></script>
