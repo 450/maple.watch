@@ -21,7 +21,8 @@
 					<li data-bind="css: { active: abbr == $root.selected() }">
 						<a href="#" role="button" data-bind="attr: { title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { window.stop(); window.location.hash = '#' + abbr; window.location.reload(); } else { return false; } }">
 							<img data-bind="attr: { src: 'icons/' + icon }" />
-							<span data-bind="text: short"></span>
+							<span class="short-name" data-bind="text: short"></span>
+							<span class="abbr-name" data-bind="text: abbr"></span>
 						</a>
 					</li>
 				</ul>

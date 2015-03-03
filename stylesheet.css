@@ -98,6 +98,7 @@ nav div.select a {
 	font-size: 12px;
 	margin: 0 4px;
 	padding: 4px 6px;
+	text-align: center;
 	text-decoration: none;
 }
 
@@ -122,6 +123,10 @@ nav div.select a span {
 	height: 20px;
 	line-height: 20px;
 	vertical-align: top;
+}
+
+nav div.select a span.abbr-name {
+	display: none;
 }
 
 nav div.settings {
@@ -527,6 +532,24 @@ footer#footer {
 	div.wrapper {
 		width: 1124px;
 	}
+
+	nav {
+		display: block;
+	}
+
+	nav div {
+		display: block;
+	}
+
+	nav div.select {
+		margin-top: 5px;
+	}
+
+	nav div.settings {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
 }
 
 @media screen and (max-width: 1152px) {
@@ -539,11 +562,25 @@ footer#footer {
 	div.wrapper {
 		width: 804px;
 	}
+
+	nav div.select ul {
+		display: table;
+		margin-top: 5px;
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 820px) {
 	div.wrapper {
 		width: 644px;
+	}
+
+	nav div.select ul span.short-name {
+		display: none;
+	}
+
+	nav div.select ul span.abbr-name {
+		display: inline-block;
 	}
 
 	dl {
