@@ -103,7 +103,7 @@ var PingModel = function (servers) {
 				if (s.name == "Self") {
 					SetPingOffset(time);
 				}
-				console.clear();
+				//console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -1699,7 +1699,9 @@ settings: {
 }
 };
 
-GetPingOffset();
+if (selected != 'Main') {
+	GetPingOffset();
+}
 
 ko.applyBindings(checker);
 
