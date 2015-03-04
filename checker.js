@@ -4,8 +4,8 @@ var checkTimeout = 5000,
 		showIPPort = true,
 		showConnection = true,
 		enableHighlight = true,
-		selected = "EMS",
-		subSelection = "Kradia",
+		selected = "Main",
+		subSelection = "",
 		processing = 0,
 		hash = window.location.hash.split('-');
 
@@ -45,7 +45,7 @@ function ping(ip, callback) {
 			_that.inUse = false;
 			_that.callback('responded', +(new Date()) - _that.start);
 				if (--processing == 0)
-					window.stop();
+					if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); };
 		};
 		this.img.onerror = function (e, error, errorThrown) {
 			if (_that.inUse) {
@@ -53,7 +53,7 @@ function ping(ip, callback) {
 				_that.inUse = false;
 				_that.callback('responded', +(new Date()) - _that.start, e);
 				if (--processing == 0)
-					window.stop();
+					if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); };
 				return true;
 			}
 		};
@@ -64,7 +64,7 @@ function ping(ip, callback) {
 				_that.inUse = false;
 				_that.callback('timeout', false);
 				if (--processing == 0)
-					window.stop();
+					if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); };
 			}
 		}, GetCheckTimeout());
 	}
@@ -103,7 +103,7 @@ var PingModel = function (servers) {
 				if (s.name == "Self") {
 					SetPingOffset(time);
 				}
-				console.clear();
+				//console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -125,6 +125,7 @@ var GameServer = function(version, icons, servers) {
 }
 
 var checker = {
+	isMainPage: ko.observable(selected == "Main"),
 	selected: ko.observable(selected),
 	subSelection: ko.observable(subSelection),
 	getDefaultSubSelectionForVersion: GetDefaultSubSelectionForVersion,
@@ -133,6 +134,7 @@ var checker = {
 		abbr: "EMS",
 		name: "MapleStory Europe",
 		available: true,
+		complete: true,
 		icon: "Kradia.png",
 		short: "EUROPE",
 		applications: [
@@ -685,6 +687,7 @@ var checker = {
 	abbr: "GMS",
 	name: "MapleStory North America <small>(Global)</small>",
 	available: true,
+	complete: false,
 	icon: "Scania.png",
 	short: "North America (Global)",
 	applications: [
@@ -1600,6 +1603,46 @@ var checker = {
 					values: [],
 					isMapleStoryGameServer: true,
 					rel: "Login"
+				},
+				{
+					icon: "BossArena.png",
+					name: "Boss Arena 1",
+					address: "8.31.99.132",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "BossArena.png",
+					name: "Boss Arena 2",
+					address: "8.31.99.132",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "BossArena.png",
+					name: "Boss Arena 3",
+					address: "8.31.99.132",
+					port: "8587",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
+				},
+				{
+					icon: "Generic.png",
+					name: "Cross World",
+					address: "8.31.99.133",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: "Login"
 				}
 			]
 		)
@@ -1609,6 +1652,7 @@ var checker = {
 		abbr: "JMS",
 		name: "MapleStory Japan <small>日本</small>",
 		available: false,
+		complete: false,
 		icon: "Galicia.png",
 		short: "日本 | Japan",
 		applications: [
@@ -1618,6 +1662,7 @@ var checker = {
 		abbr: "KMS",
 		name: "MapleStory Korea <small>(한국)</small>",
 		available: false,
+		complete: false,
 		icon: "Mushroom.png",
 		short: "한국 | Korea",
 		applications: [
@@ -1627,6 +1672,7 @@ var checker = {
 		abbr: "MSEA",
 		name: "MapleStory SEA <small>(SG / MY)</small>",
 		available: false,
+		complete: false,
 		icon: "Aquila.png",
 		short: "Maple SEA SG / MY",
 		applications: [
@@ -1636,6 +1682,7 @@ var checker = {
 		abbr: "MS2",
 		name: "MapleStory 2 CBT <small>(메이플스토리2)</small>",
 		available: false,
+		complete: false,
 		icon: "MS2Scania.png",
 		short: "MapleStory 2 CBT",
 		applications: [
@@ -1689,7 +1736,7 @@ function SetPingOffset(offset) {
 	checker.settings.pingOffset(offset);
 }
 
-$(function() {
+/*$(function() {
 	$('body').on('mouseenter', '[data-rel], [data-for]', function() {
 		$('.revealed').removeClass('revealed');
 
@@ -1705,4 +1752,4 @@ $(function() {
 	}).on('mouseleave',  'li, div.servers', function() {
 		$('.revealed').removeClass('revealed');
 	});
-})
+})*/
