@@ -3,7 +3,7 @@ var checkTimeout = 5000,
 		checkDelay = 100,
 		showIPPort = true,
 		showConnection = true,
-		clickToRefresh = true,
+		clickToRefresh = false,
 		fixPing = true,
 		selected = "Main",
 		subSelection = "",
@@ -2522,32 +2522,43 @@ function SetPingOffset(offset) {
 }
 
 function ModifySettings() {
-	console.log("Foo");
+	var delay = checker.settings.delay(),
+			timeout = checker.settings.timeout();
+
+	createCookie("Delay", delay > 10000 ? 10000 : (delay < 50 ? 50 : delay), 3650);
+	createCookie("Timeout", timeout > 60000 ? 60000 : (timeout < 500 ? 500 : timeout), 3650);
+	createCookie("ShowIPPort", checker.settings.showIPPort(), 3650);
+	createCookie("ShowConnection", checker.settings.showConnection(), 3650);
+	createCookie("ClickToRefresh", checker.settings.clickToRefresh(), 3650);
+	createCookie("FixPing", checker.settings.fixPing(), 3650);
 }
 
 function DefaultSettings() {
-	settings.delay(checkDelay);
-	settings.timeout(checkTimeout);
-	settings.showIPPort(showIPPort);
-	settings.showConnection(showConnection);
-	settings.clickToRefresh(clickToRefresh);
-	settings.fixPing(fixPing);
+	checker.settings.delay(checkDelay);
+	checker.settings.timeout(checkTimeout);
+	checker.settings.showIPPort(showIPPort);
+	checker.settings.showConnection(showConnection);
+	checker.settings.clickToRefresh(clickToRefresh);
+	checker.settings.fixPing(fixPing);
 }
 
-/*$(function() {
-	$('body').on('mouseenter', '[data-rel], [data-for]', function() {
-		$('.revealed').removeClass('revealed');
+function createCookie(name,value,days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
 
-		var rel = $(this).attr('data-rel') || $(this).attr('data-for'),
-		isRel = !!$(this).attr('data-rel');
-
-		if (isRel) {
-			$('[data-for="' + rel + '"]').addClass('revealed');
-			$(this).addClass('revealed');
-		}
-		else
-			$('[data-for="' + rel + '"], [data-rel="' + rel + '"]').addClass('revealed');
-	}).on('mouseleave',  'li, div.servers', function() {
-		$('.revealed').removeClass('revealed');
-	});
-})*/
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
