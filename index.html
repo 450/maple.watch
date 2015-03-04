@@ -205,7 +205,7 @@
 			<div class="servers" data-bind="foreach: content().servers">
 				<!-- ko if: unknown == false -->
 				<!-- ko if: $parent.name != "Game Servers" || rel == $root.subSelection() || (rel == 'Login' || (rel != 'Login' && $root.selected() == 'GMS')) -->
-				<!-- ko if: name == "Channel 1" || name == "Cash Shop" || name == "Star Planet 1" || name == "Boss Arena 1" || name == "Cross World" -->
+				<!-- ko if: name == "Channel 1" || name == "Cash Shop" || name == "Star Planet 1" || name == "Boss Arena 1" || name == "Cross World" || name == "Monster Life" || name == "Evolution Lab" -->
 				<br>
 				<!-- /ko -->
 				<article data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }, attr: { 'data-rel': rel }">
