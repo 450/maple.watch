@@ -13,13 +13,13 @@
 	<div class="wrapper">
 		<nav>
 			<div class="title">
-				<span>maple.watch</span>
+				<a href="/" data-bind="click: function() { if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); }; window.location.href = 'http://maple.watch'; }">maple.watch</a>
 			</div>
 			<div class="select">
 				<span class="select-text">Select a MapleStory version:</span>
 				<ul data-bind="foreach: versions">
 					<li data-bind="css: { active: abbr == $root.selected() }">
-						<a href="#" role="button" data-bind="attr: { title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { window.stop(); window.location.hash = '#' + abbr; window.location.reload(); } else { return false; } }">
+						<a href="#" role="button" data-bind="attr: { href: available ? '#' + abbr + '-' + $root.getDefaultSubSelectionForVersion(abbr) : '', title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); }; window.location.hash = '#' + abbr + '-' + $root.getDefaultSubSelectionForVersion(abbr); window.location.reload(); } else { return false; } }">
 							<img data-bind="attr: { src: 'icons/' + icon }" />
 							<span class="short-name" data-bind="text: short"></span>
 							<span class="abbr-name" data-bind="text: abbr"></span>
@@ -27,14 +27,74 @@
 					</li>
 				</ul>
 			</div>
+			<!-- ko if: !isMainPage() -->
 			<div style="display:none" class="settings">
 				<span role="button" tabindex="1">
 					<i class="fa fa-cog"></i>
 					Controls
 				</span>
 			</div>
+			<!-- /ko -->
 		</nav>
 	</div>
+	<!-- ko if: isMainPage() -->
+	<div class="wrapper" id="main-page">
+		<h1>
+			<img data-bind="attr: { src: 'icons/Mushroom.png' }" />
+			<span>Welcome to maple.watch!</span>
+		</h1>
+		<p class="tagline">The website which lets you track your connection to the MapleStory servers without having to open the game to find out if they're online!</p>
+		<section>
+			<article>
+				<div class="fake-table">
+					<div>
+						<h2>How do I use maple.watch?</h2>
+						<p>Begin by selecting the version of the game you want to check from the very top of the page or from the below list:</p>
+						<ul data-bind="foreach: versions" class="versions-list">
+							<li>
+								<a href="#" role="button" data-bind="attr: { href: available ? '#' + abbr + '-' + $root.getDefaultSubSelectionForVersion(abbr) : '', title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); }; window.location.hash = '#' + abbr + '-' + $root.getDefaultSubSelectionForVersion(abbr); window.location.reload(); } else { return false; } }">
+									<img data-bind="attr: { src: 'icons/' + icon }" />
+									<span class="short-name" data-bind="text: short"></span>
+								</a>
+								<!-- ko if: !available -->
+								<span class="notice">&mdash; Coming soon</span>
+								<!-- /ko -->
+								<!-- ko if: available && !complete -->
+								<span class="notice">&mdash; Partially complete</span>
+								<!-- /ko -->
+							</li>
+						</ul>
+						<p>From there you can select the server collection (or <em>world</em>, if you like) you wish to check the status of.</p>
+					</div>
+					<div class="tutorial">
+						<a href="tutorial/tutorial1.png" target="_blank">
+							<img src="tutorial/tutorial1.png" alt="Tutorial 1" />
+						</a>
+					</div>
+				</div>
+				
+			</article>
+			<article>
+				<h2>How is this any different to any of the other status checker websites?</h2>
+				<p>Quite simply: maple.watch tracks <em>your</em> connection to the MapleStory servers, and tells you <em>your</em> ping response from each server.</p>
+				<h3>What's wrong with the other status checking websites?</h3>
+				<p>The other status checking websites are great and you should definitely continue using them, but they all suffer from a few pitfalls which maple.watch sets out to fix:</p>
+				<ol class="the-bad">
+					<li><i class="fa fa-times"></i> <strong>They're infrequently updated</strong> &mdash; Some of them only update once every few minutes, which can be enough time for a server to go down and come back up again.</li>
+					<li><i class="fa fa-times"></i> <strong>They're centralised</strong> &mdash; All of the requests made to each server come from <em>their</em> computers, not yours. They don't show your connectivity, they show their own.</li>
+				</ol>
+				<h3>So how does maple.watch get around these issues?</h3>
+				<p>maple.watch works completely differently to all the other status checking websites:</p>
+				<ol class="the-good">
+					<li><i class="fa fa-check"></i> <strong>It's not at all centralised</strong> &mdash; Requests are sent out from <em>your</em> computer, not ours. The responses you see represent whether <em>you</em> are able to connect.</li>
+					<li><i class="fa fa-check"></i> <strong>It's updated instantly</strong> &mdash; As soon as you load each page the requests will be sent to each server you want to see there and then. There's no waiting around.</li>
+					<li><i class="fa fa-check"></i> <strong>It's completely transparent</strong> &mdash; We show you the IP addresses and ports of each server. Heck, we're even <a href="https://github.com/450/mse">open source</a>!</li>
+				</ol>
+			</article>
+		</section>
+	</div>
+	<!-- /ko -->
+	<!-- ko if: !isMainPage() -->
 	<div style="display:none" id="controls" class="wrapper">
 		<section>
 			<div class="info">
@@ -104,9 +164,15 @@
 	<!-- ko if: abbr == $root.selected() -->
 	<div class="wrapper">
 		<h1>
-			<img data-bind="attr: { src: 'icons/' + icon }" />
+			<img data-bind="attr: { src: 'icons/Mushroom.png' }" />
 			<span data-bind="html: name"></span>
 		</h1>
+		<h2>
+			<small>Selected server:</small>
+			<img data-bind="attr: { src: 'icons/' + ($root.subSelection() == 'Login' ? 'Mushroom' : $root.subSelection() ) + '.png' }" />
+			<span data-bind="html: $root.subSelection()"></span>
+		</h2>
+		<p>To select a different world, click on its name in the Game Servers sidebar!</p>
 	</div>
 	<!-- ko if: applications.length == 0 -->
 	<div class="wrapper">
@@ -124,21 +190,22 @@
 		<section>
 			<div class="info">
 				<h2 data-bind="text: name"></h2>
-				<!-- ko if: description -->
-				<p data-bind="text: description"></p>
-				<!-- /ko -->
 				<ul data-bind="foreach: icons">
-					<li data-bind="attr: { 'data-for': name }">
+					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS')) }, click: function() { if ($parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS'))) { if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); }; window.location.hash = '#' + $root.selected() + '-' + name; window.location.reload(); } }">
 						<span class="icon">
 							<img data-bind="attr: { src: 'icons/' + icon }" />
 						</span>
 						<span data-bind="text: name"></span>
 					</li>
 				</ul>
+				<!-- ko if: description -->
+				<p data-bind="text: description"></p>
+				<!-- /ko -->
 			</div>
 			<div class="servers" data-bind="foreach: content().servers">
 				<!-- ko if: unknown == false -->
-				<!-- ko if: name == "Channel 1" -->
+				<!-- ko if: $parent.name != "Game Servers" || rel == $root.subSelection() || (rel == 'Login' || (rel != 'Login' && $root.selected() == 'GMS')) -->
+				<!-- ko if: name == "Channel 1" || name == "Cash Shop" || name == "Star Planet 1" || name == "Boss Arena 1" || name == "Cross World" -->
 				<br>
 				<!-- /ko -->
 				<article data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }, attr: { 'data-rel': rel }">
@@ -160,18 +227,20 @@
 						</dl>
 					</div>
 					<div class="status" data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }">
-						<div class="text" data-bind="text: status() == 'timeout' ? 'No Response' : time() > 0 ? time() < 1000 ? 'Online!' : 'Online! Slow...' : 'Checking...'"></div>
+						<div class="text" data-bind="text: status() == 'timeout' ? 'No Response' : time() > 0 ? (time() > $root.settings.pingOffset() > 0 ? time() - $root.settings.pingOffset() : 0) < 1000 ? 'Online!' : 'Online! Slow...' : 'Checking...'"></div>
 						<div class="time" data-bind="text: time() !== '' && status() != 'timeout' ? (time() > $root.settings.pingOffset() > 0 ? time() - $root.settings.pingOffset() : 0) + 'ms' : ''"></div>
 					</div>
 				</article>
+				<!-- /ko -->
 				<!-- /ko -->
 			</div>
 		</section>
 	</div>
 	<!-- /ko -->
 	<!-- /ko -->
+	<!-- /ko -->
 	<div class="wrapper">
-		<footer id="footer">&copy; 450.github.io/mse 2015<br>All Rights Reserved</footer>
+		<footer id="footer">&copy; Copyright <a href="http://maple.watch">maple.watch</a> 2015<br>All Rights Reserved</footer>
 	</div>
 	<script type="text/javascript" src="knockout.min.js"></script>
 	<script type="text/javascript" src="jquery.min.js"></script>

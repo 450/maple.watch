@@ -77,14 +77,21 @@ nav div.title {
 	width: 128px;
 }
 
-nav div.title span {
+nav div.title a {
 	background: #37474F;
 	box-shadow: 5px 0 4px 0px #9E9E9E;
 	color: #fff;
 	display: inline-block;
 	padding: 4px 14px;
 	text-align: center;
+	text-decoration: none;
+	transition: 0.1s;
 	width: 112px;
+}
+
+nav div.title a:hover,
+nav div.title a:focus {
+	background: #000;
 }
 
 nav div.select span.select-text {
@@ -100,6 +107,13 @@ nav div.select a {
 	padding: 4px 6px;
 	text-align: center;
 	text-decoration: none;
+	transition: 0.1s;
+}
+
+nav div.select li a:hover,
+nav div.select li a:focus {
+	background: #FAFAFA;
+	box-shadow: 0 0 4px 0 #C0C0C0;
 }
 
 nav div.select li.active a {
@@ -107,7 +121,11 @@ nav div.select li.active a {
 	box-shadow: 0 0 3px 1px #9E9E9E;
 }
 
-nav div.select a.disabled {
+nav div.select a.disabled,
+nav div.select a.disabled:hover,
+nav div.select a.disabled:focus {
+	background: transparent;
+	box-shadow: none;
 	cursor: default;
 	opacity: 0.75;
 }
@@ -249,6 +267,7 @@ nav div.settings span:focus {
 div.wrapper h1 {
 	font-weight: 300;
 	line-height: 30px;
+	margin: 24px 0 10px;
 	vertical-align: top;
 }
 
@@ -258,6 +277,35 @@ div.wrapper h1 img {
 	vertical-align: top;
 }
 
+div.wrapper h2 {
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 20px;
+	vertical-align: top;
+	margin: 10px 0 0;
+}
+
+div.wrapper h2 small {
+	font-size: 14px;
+}
+
+div.wrapper h2 img {
+	height: 20px;
+	width: 20px;
+	vertical-align: top;
+}
+
+div.wrapper p {
+	font-size: 14px;
+	font-weight: 300;
+	margin: 0 0;
+}
+
+div.wrapper p.tagline {
+	font-size: 16px;
+	font-weight: 500;
+}
+
 div.wrapper section {
 	background: #E0E0E0;
 	margin: 10px 0;
@@ -265,6 +313,136 @@ div.wrapper section {
 	padding-left: 140px;
 	position: relative;
 	z-index: 2;
+}
+
+div#main-page section {
+	background: transparent;
+	padding: 0;
+}
+
+div#main-page section article {
+	background: #fff;
+	box-shadow: 0 0 3px 1px #9E9E9E;
+	display: block;
+	margin: 20px 0;
+	padding: 10px;
+	position: relative;
+}
+
+div#main-page section article div.fake-table {
+	display: table;
+	width: 100%;
+}
+
+div#main-page section article div.fake-table div {
+	display: table-cell;
+	padding: 10px;
+	vertical-align: middle;
+}
+
+div#main-page section article a:active {
+	color: #B71C1C;
+}
+
+div#main-page section article .tutorial {
+	border-left: 1px dotted #607D8B;
+	text-align: center;
+}
+
+div#main-page section article h2 {
+	font-weight: 600;
+}
+
+div#main-page section article h3 {
+	font-weight: 600;
+	margin: 20px 0 0;
+}
+
+div#main-page section article p {
+	font-size: 16px;
+	font-weight: 400;
+	margin: 4px 0;
+}
+
+div#main-page section article strong {
+	font-weight: 600;
+}
+
+div#main-page section article ol {
+	list-style-type: none;
+	padding: 0;
+}
+
+div#main-page section article ol i {
+	display: inline-block;
+	text-align: center;
+	width: 32px;
+}
+
+div#main-page section article .the-bad strong {
+	color: #B71C1C;
+}
+
+div#main-page section article .the-good strong {
+	color: #33691E;
+}
+
+div#main-page section article a {
+	color: #1976D2;
+}
+
+div#main-page section article a:hover,
+div#main-page section article a:focus {
+	color: #0D47A1;
+}
+
+div#main-page section article .tutorial img {
+	margin: 0;
+}
+
+div#main-page section article ul.versions-list {
+	list-style-type: none;
+	padding: 0;
+}
+
+div#main-page section article ul.versions-list li {
+	margin: 6px 0;
+}
+
+div#main-page section article ul.versions-list a {
+	text-decoration: none;
+}
+
+div#main-page section article ul.versions-list a.disabled {
+	cursor: default;
+	color: #000;
+	opacity: 0.75;
+}
+
+div#main-page section article ul.versions-list a img {
+	height: 20px;
+	margin: 0 6px;
+	transition: 0.5s;
+	vertical-align: top;
+	width: 20px;
+}
+
+div#main-page section article ul.versions-list a.disabled img {
+	transition: 0;
+	-webkit-transform: none;
+	-moz-transform: none;
+	transform: none;
+}
+
+div#main-page section article ul.versions-list a:hover img,
+div#main-page section article ul.versions-list a:focus img {
+	-webkit-transform: rotateY(360deg);
+	-moz-transform: rotateY(360deg);
+	transform: rotateY(360deg);
+}
+
+div#main-page section article ul.versions-list span.notice {
+	font-size: 12px;
 }
 
 div.info {
@@ -293,33 +471,32 @@ div.info h2 {
 div.info p {
 	color: #E0E0E0;
 	font-size: 11px;
+	margin: 5px 0;
 }
 
 div.info ul {
 	display: block;
 	font-size: 12px;
 	list-style-type: none;
-	margin: 0;
+	margin: 10px 0 10px -10px;
 	padding: 0;
-	position: absolute;
-	bottom: 0;
-	left: 0;
 	width: 130px;
-}
-
-div.info ul li:last-child {
-	border-bottom: none;
 }
 
 div.info ul li {
 	background: #78909C;
 	border-bottom: 1px solid #546E7A;
 	border-top: 1px solid #546E7A;
+	cursor: default;
 	display: table;
 	margin: -1px 0 0 0;
 	table-layout: fixed;
 	transition: 0.2s;
 	width: 100%;
+}
+
+div.info ul li.clickable {
+	cursor: pointer;
 }
 
 div.info span {
@@ -507,7 +684,9 @@ div.servers article.revealed {
 	background: #FFF9C4;
 }
 
-div.info ul li.revealed {
+div.info ul li:hover,
+div.info ul li:focus,
+div.info ul li.active {
 	background: #37474F;
 }
 
@@ -526,6 +705,12 @@ footer#footer {
 	font-size: 12px;
 	margin: 14px 0;
 	text-align: center;
+}
+
+footer#footer a {
+	color: #546E7A;
+	font-weight: 600;
+	text-decoration: none;
 }
 
 @media screen and (max-width: 1365px) {
@@ -549,6 +734,20 @@ footer#footer {
 		position: absolute;
 		top: 0;
 		right: 0;
+	}
+
+	div#main-page section article div.fake-table {
+		display: block;
+	}
+
+	div#main-page section article div.fake-table div {
+		display: block;
+		padding: 10px;
+	}
+
+	div#main-page section article div.fake-table div.tutorial {
+		border: none;
+		text-align: left;
 	}
 }
 
@@ -586,16 +785,28 @@ footer#footer {
 	dl {
 		display: none;
 	}
+
+	div#main-page section article div.fake-table div.tutorial img {
+		width: 604px;
+	}
 }
 
 @media screen and (max-width: 660px) {
 	div.wrapper {
 		width: 484px;
 	}
+
+	div#main-page section article div.fake-table div.tutorial img {
+		width: 444px;
+	}
 }
 
 @media screen and (max-width: 500px) {
 	div.wrapper {
 		width: 320px;
+	}
+
+	div#main-page section article div.fake-table div.tutorial img {
+		width: 280px;
 	}
 }
