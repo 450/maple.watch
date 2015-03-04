@@ -20,7 +20,7 @@
 				<ul data-bind="foreach: versions">
 					<li data-bind="css: { active: abbr == $root.selected() }">
 						<a href="#" role="button" data-bind="attr: { href: available ? '#' + abbr + '-' + $root.getDefaultSubSelectionForVersion(abbr) : '', title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); }; window.location.hash = '#' + abbr + '-' + $root.getDefaultSubSelectionForVersion(abbr); window.location.reload(); } else { return false; } }">
-							<img data-bind="attr: { src: 'icons/' + icon }" />
+							<img data-bind="attr: { src: 'http://maple.watch/icons/' + icon }" />
 							<span class="short-name" data-bind="text: short"></span>
 							<span class="abbr-name" data-bind="text: abbr"></span>
 						</a>
@@ -40,7 +40,7 @@
 	<!-- ko if: isMainPage() -->
 	<div class="wrapper" id="main-page">
 		<h1>
-			<img data-bind="attr: { src: 'icons/Mushroom.png' }" />
+			<img data-bind="attr: { src: 'http://maple.watch/icons/Mushroom.png' }" />
 			<span>Welcome to maple.watch!</span>
 		</h1>
 		<p class="tagline">The website which lets you track your connection to the MapleStory servers without having to open the game to find out if they're online!</p>
@@ -53,7 +53,7 @@
 						<ul data-bind="foreach: versions" class="versions-list">
 							<li>
 								<a href="#" role="button" data-bind="attr: { href: available ? '#' + abbr + '-' + $root.getDefaultSubSelectionForVersion(abbr) : '', title: available ? name : 'Coming Soon!' }, css: { disabled: !available }, click: function() { if (available) { if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); }; window.location.hash = '#' + abbr + '-' + $root.getDefaultSubSelectionForVersion(abbr); window.location.reload(); } else { return false; } }">
-									<img data-bind="attr: { src: 'icons/' + icon }" />
+									<img data-bind="attr: { src: 'http://maple.watch/icons/' + icon }" />
 									<span class="short-name" data-bind="text: short"></span>
 								</a>
 								<!-- ko if: !available -->
@@ -164,12 +164,12 @@
 	<!-- ko if: abbr == $root.selected() -->
 	<div class="wrapper">
 		<h1>
-			<img data-bind="attr: { src: 'icons/Mushroom.png' }" />
+			<img data-bind="attr: { src: 'http://maple.watch/icons/Mushroom.png' }" />
 			<span data-bind="html: name"></span>
 		</h1>
 		<h2>
 			<small>Selected server:</small>
-			<img data-bind="attr: { src: 'icons/' + ($root.subSelection() == 'Login' ? 'Mushroom' : $root.subSelection() ) + '.png' }" />
+			<img data-bind="attr: { src: 'http://maple.watch/icons/' + ($root.subSelection() == 'Login' ? 'Mushroom' : $root.subSelection() ) + '.png' }" />
 			<span data-bind="html: $root.subSelection()"></span>
 		</h2>
 		<p>To select a different world, click on its name in the Game Servers sidebar!</p>
@@ -193,7 +193,7 @@
 				<ul data-bind="foreach: icons">
 					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS')) }, click: function() { if ($parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS'))) { if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); }; window.location.hash = '#' + $root.selected() + '-' + name; window.location.reload(); } }">
 						<span class="icon">
-							<img data-bind="attr: { src: 'icons/' + icon }" />
+							<img data-bind="attr: { src: 'http://maple.watch/icons/' + icon }" />
 						</span>
 						<span data-bind="text: name"></span>
 					</li>
@@ -212,7 +212,7 @@
 					<div>
 						<h3>
 							<!-- ko if: icon.charAt(0) != 'f' -->
-							<img data-bind="attr: { src: 'icons/' + icon }" />
+							<img data-bind="attr: { src: 'http://maple.watch/icons/' + icon }" />
 							<!-- /ko -->
 							<!-- ko if: icon.charAt(0) == 'f' -->
 							<i class="icon fa" data-bind="css: icon"></i>
