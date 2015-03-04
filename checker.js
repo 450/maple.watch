@@ -2472,12 +2472,12 @@ var checker = {
 ],
 settings: {
 	pingOffset: ko.observable(0),
-	delay: ko.observable(100),
-	clickToRefresh: ko.observable(false),
-	fixPing: ko.observable(true),
-	showConnection: ko.observable(true),
-	showIPPort: ko.observable(true),
-	timeout: ko.observable(5000),
+	delay: ko.observable(readCookie("Delay") ? readCookie("Delay") : 100),
+	clickToRefresh: ko.observable(readCookie("ClickToRefresh") == "false" ? false : false),
+	fixPing: ko.observable(readCookie("FixPing") == "false" ? false : true),
+	showConnection: ko.observable(readCookie("ShowConnection") == "false" ? false : true),
+	showIPPort: ko.observable(readCookie("ShowIPPort") == "false" ? false : true),
+	timeout: ko.observable(readCookie("Timeout") ? readCookie("Timeout") : 5000),
 	showControls: ko.observable(false)
 }
 };
@@ -2531,6 +2531,8 @@ function ModifySettings() {
 	createCookie("ShowConnection", checker.settings.showConnection(), 3650);
 	createCookie("ClickToRefresh", checker.settings.clickToRefresh(), 3650);
 	createCookie("FixPing", checker.settings.fixPing(), 3650);
+
+	window.location.reload();
 }
 
 function DefaultSettings() {
