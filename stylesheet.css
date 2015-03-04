@@ -203,9 +203,13 @@ nav div.settings span:focus {
 	width: 100%;
 }
 
+#controls article.multiple {
+	padding: 4px 10px 3px 10px;
+}
+
 #controls article.multiple label {
 	border-bottom: 1px dashed #E0E0E0;
-	margin-bottom: 8px;
+	margin-bottom: 0;
 }
 
 #controls article.multiple label:last-child {
@@ -262,6 +266,16 @@ nav div.settings span:focus {
 #controls button[disabled]:hover,
 #controls button[disabled]:focus {
 	background: transparent;
+}
+
+div#loading {
+	margin: 40px auto;
+}
+
+div#loading p {
+	color: #546E7A;
+	font-size: 20px;
+	font-weight: 300;
 }
 
 div.wrapper h1 {

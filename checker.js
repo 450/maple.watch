@@ -3,7 +3,8 @@ var checkTimeout = 5000,
 		checkDelay = 100,
 		showIPPort = true,
 		showConnection = true,
-		enableHighlight = true,
+		clickToRefresh = true,
+		fixPing = true,
 		selected = "Main",
 		subSelection = "",
 		processing = 0,
@@ -119,7 +120,7 @@ var PingModel = function (servers) {
 				if (s.name == "Self") {
 					SetPingOffset(time);
 				}
-				console.clear();
+				//console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -2271,6 +2272,8 @@ var checker = {
 	selected: ko.observable(selected),
 	subSelection: ko.observable(subSelection),
 	getDefaultSubSelectionForVersion: GetDefaultSubSelectionForVersion,
+	modifySettings: ModifySettings,
+	defaultSettings: DefaultSettings,
 	versions: [
 	{
 		abbr: "EMS",
@@ -2470,10 +2473,12 @@ var checker = {
 settings: {
 	pingOffset: ko.observable(0),
 	delay: ko.observable(100),
-	enableHighlight: ko.observable(true),
+	clickToRefresh: ko.observable(false),
+	fixPing: ko.observable(true),
 	showConnection: ko.observable(true),
 	showIPPort: ko.observable(true),
-	timeout: ko.observable(5000)
+	timeout: ko.observable(5000),
+	showControls: ko.observable(false)
 }
 };
 
@@ -2514,6 +2519,19 @@ function GetDefaultSubSelectionForVersion(version) {
 
 function SetPingOffset(offset) {
 	checker.settings.pingOffset(offset);
+}
+
+function ModifySettings() {
+	console.log("Foo");
+}
+
+function DefaultSettings() {
+	settings.delay(checkDelay);
+	settings.timeout(checkTimeout);
+	settings.showIPPort(showIPPort);
+	settings.showConnection(showConnection);
+	settings.clickToRefresh(clickToRefresh);
+	settings.fixPing(fixPing);
 }
 
 /*$(function() {

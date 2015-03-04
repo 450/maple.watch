@@ -15,7 +15,7 @@
 			<div class="title">
 				<a href="/" data-bind="click: function() { if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); }; window.location.href = 'http://maple.watch'; }">maple.watch</a>
 			</div>
-			<div class="select">
+			<div class="select" style="display:none" data-bind="visible: true">
 				<span class="select-text">Select a MapleStory version:</span>
 				<ul data-bind="foreach: versions">
 					<li data-bind="css: { active: abbr == $root.selected() }">
@@ -28,7 +28,7 @@
 				</ul>
 			</div>
 			<!-- ko if: !isMainPage() -->
-			<div style="display:none" class="settings">
+			<div style="display:none" class="settings" data-bind="visible: true, click: function() { settings.showControls(true) }, visible: !settings.showControls()">
 				<span role="button" tabindex="1">
 					<i class="fa fa-cog"></i>
 					Controls
@@ -37,8 +37,11 @@
 			<!-- /ko -->
 		</nav>
 	</div>
+	<div class="wrapper" id="loading" data-bind="visible: false">
+		<p><i class="fa fa-cog fa-spin"></i> Loading, please wait...</p>
+	</div>
 	<!-- ko if: isMainPage() -->
-	<div class="wrapper" id="main-page">
+	<div class="wrapper" id="main-page" style="display:none" data-bind="visible: true">
 		<h1>
 			<img data-bind="attr: { src: 'icons/Mushroom.png' }" />
 			<span>Welcome to maple.watch!</span>
@@ -95,7 +98,7 @@
 	</div>
 	<!-- /ko -->
 	<!-- ko if: !isMainPage() -->
-	<div style="display:none" id="controls" class="wrapper">
+	<div style="display:none" id="controls" class="wrapper" data-bind="visible: settings.showControls()">
 		<section>
 			<div class="info">
 				<h2>Controls</h2>
@@ -122,22 +125,28 @@
 					<footer>This number (in milliseconds) determines how long we should wait before assuming a server is offline. The higher this is, the greater chance of false positives there will be. Ideally this should be set between 1500 and 10000.</footer>
 				</article>
 				<article class="multiple">
-					<label>
+					<label title="Display the IP addresses and Port numbers for each server.">
 						<span>Show IPs and Ports</span>
 						<span class="control">
 							<input type="checkbox" data-bind="checked: settings.showIPPort" />
 						</span>
 					</label>
-					<label>
+					<label title="Display the millisecond connection time for each server alongside the status text.">
 						<span>Show Connection Time</span>
 						<span class="control">
 							<input type="checkbox" data-bind="checked: settings.showConnection"  />
 						</span>
 					</label>
-					<label>
-						<span>Enable Highlighting</span>
+					<label title="Allow clicking on each server to refresh it.">
+						<span>Enable Click to Refresh</span>
 						<span class="control">
-							<input type="checkbox" data-bind="checked: settings.enableHighlight"  />
+							<input type="checkbox" disabled data-bind="checked: settings.clickToRefresh"  />
+						</span>
+					</label>
+					<label>
+						<span>Fix Browser Ping Speed</span>
+						<span class="control">
+							<input type="checkbox" data-bind="checked: settings.fixPing"  />
 						</span>
 					</label>
 				</article>
@@ -149,11 +158,11 @@
 					<i class="fa fa-check"></i>
 					Save and Reload
 				</button>
-				<button role="button" type="button" disabled class="plain">
+				<button role="button" type="button" class="plain" data-bind="click: function() { defaultSettings() }">
 					<i class="fa fa-history"></i>
 					Use Default
 				</button>
-				<button role="button" type="button" class="plain cancel">
+				<button role="button" type="button" class="plain cancel" data-bind="click: function() { settings.showControls(false) }">
 					<i class="fa fa-times"></i>
 					Close Controls
 				</button>
@@ -162,7 +171,7 @@
 	</div>
 	<!-- ko foreach: versions -->
 	<!-- ko if: abbr == $root.selected() -->
-	<div class="wrapper">
+	<div class="wrapper" style="display:none" data-bind="visible: true">
 		<h1>
 			<img data-bind="attr: { src: 'icons/Mushroom.png' }" />
 			<span data-bind="html: name"></span>
@@ -175,7 +184,7 @@
 		<p>To select a different world, click on its name in the Game Servers sidebar!</p>
 	</div>
 	<!-- ko if: applications.length == 0 -->
-	<div class="wrapper">
+	<div class="wrapper" style="display:none" data-bind="visible: true">
 		<section>
 			<div class="info">
 				<h2>Watch This Space</h2>
@@ -186,7 +195,7 @@
 			</div>
 	</div>
 	<!-- /ko -->
-	<div class="wrapper" data-bind="foreach: applications">
+	<div class="wrapper" data-bind="foreach: applications, visible: true" style="display:none">
 		<section>
 			<div class="info">
 				<h2 data-bind="text: name"></h2>
