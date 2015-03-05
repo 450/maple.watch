@@ -137,7 +137,7 @@ var GameServer = function(version, icons, servers) {
 		name: "Game Servers",
 		description: "These are the MapleStory " + version + " game servers.",
 		icons: icons,
-		content: function(toggle) { return new PingModel(servers) }
+		content: function() { return new PingModel(servers) }
 	}
 }
 
@@ -2263,7 +2263,473 @@ var servers = {
 				isMapleStoryGameServer: true,
 				rel: name
 			}]
-		}
+		},
+		Demethos: function(name) {
+			return [
+				{
+					icon: name + ".png",
+					name: "Channel 1",
+					address: "8.31.99.174",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 2",
+					address: "8.31.99.174",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 3",
+					address: "8.31.99.175",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 4",
+					address: "8.31.99.175",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 5",
+					address: "8.31.99.176",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 6",
+					address: "8.31.99.176",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 7",
+					address: "8.31.99.177",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 8",
+					address: "8.31.99.177",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 9",
+					address: "8.31.99.178",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 10",
+					address: "8.31.99.178",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 11",
+					address: "8.31.99.179",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 12",
+					address: "8.31.99.179",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 13",
+					address: "8.31.99.180",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 14",
+					address: "8.31.99.180",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 15",
+					address: "8.31.99.181",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 16",
+					address: "8.31.99.181",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 17",
+					address: "8.31.99.182",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 18",
+					address: "8.31.99.182",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 19",
+					address: "8.31.99.183",
+					port: "8585",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Channel 20",
+					address: "8.31.99.183",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Cash Shop",
+					address: "8.31.99.195",
+					port: "8785",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Monster Life",
+					address: "8.31.99.207",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				},
+				{
+					icon: name + ".png",
+					name: "Evolution Lab",
+					address: "8.31.99.199",
+					port: "8586",
+					interval: 5000,
+					values: [],
+					isMapleStoryGameServer: true,
+					rel: name
+				}
+			]
+		},
+		Renegades: [
+			{
+				icon: "Renegades.png",
+				name: "Channel 1",
+				address: "8.31.99.184",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 2",
+				address: "8.31.99.184",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 3",
+				address: "8.31.99.185",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 4",
+				address: "8.31.99.185",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 5",
+				address: "8.31.99.186",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 6",
+				address: "8.31.99.186",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 7",
+				address: "8.31.99.187",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 8",
+				address: "8.31.99.187",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 9",
+				address: "8.31.99.188",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 10",
+				address: "8.31.99.188",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 11",
+				address: "8.31.99.188",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 12",
+				address: "8.31.99.189",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 13",
+				address: "8.31.99.189",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 14",
+				address: "8.31.99.189",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 15",
+				address: "8.31.99.190",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 16",
+				address: "8.31.99.190",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 17",
+				address: "8.31.99.190",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 18",
+				address: "8.31.99.191",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 19",
+				address: "8.31.99.191",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Channel 20",
+				address: "8.31.99.191",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Cash Shop",
+				address: "8.31.99.195",
+				port: "8786",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Monster Life",
+				address: "8.31.99.207",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			},
+			{
+				icon: "Renegades.png",
+				name: "Evolution Lab",
+				address: "8.31.99.199",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Renegades"
+			}
+		]
 	}
 }
 
@@ -2274,6 +2740,7 @@ var checker = {
 	getDefaultSubSelectionForVersion: GetDefaultSubSelectionForVersion,
 	modifySettings: ModifySettings,
 	defaultSettings: DefaultSettings,
+	getServersCountForApplication: GetServersCountForApplication,
 	versions: [
 	{
 		abbr: "EMS",
@@ -2282,6 +2749,11 @@ var checker = {
 		complete: true,
 		icon: "Kradia.png",
 		short: "EUROPE",
+		serverCount: [
+			4,
+			1,
+			1
+		],
 		applications: [
 			GameServer("Europe", [
 					{
@@ -2352,6 +2824,9 @@ var checker = {
 	complete: false,
 	icon: "Scania.png",
 	short: "North America (Global)",
+	serverCount: [
+		17
+	],
 	applications: [
 		GameServer("Global", [
 				{
@@ -2400,6 +2875,31 @@ var checker = {
 					sub: "World"
 				},
 				{
+					icon: "Demethos.png",
+					name: "Demethos",
+					sub: "World"
+				},
+				{
+					icon: "Galicia.png",
+					name: "Galicia",
+					sub: "World"
+				},
+				{
+					icon: "El Nido.png",
+					name: "El Nido",
+					sub: "World"
+				},
+				{
+					icon: "Zenith.png",
+					name: "Zenith",
+					sub: "World"
+				},
+				{
+					icon: "Arcania.png",
+					name: "Arcania",
+					sub: "World"
+				},
+				{
 					icon: "Chaos.png",
 					name: "Chaos",
 					sub: "World"
@@ -2407,6 +2907,11 @@ var checker = {
 				{
 					icon: "Nova.png",
 					name: "Nova",
+					sub: "World"
+				},
+				{
+					icon: "Renegades.png",
+					name: "Renegades",
 					sub: "World"
 				}
 			],
@@ -2423,8 +2928,14 @@ var checker = {
 				servers.GMS.Mardia('Mardia'),
 				servers.GMS.Mardia('Kradia'),
 				servers.GMS.Mardia('Yellonde'),
+				servers.GMS.Demethos('Demethos'),
+				servers.GMS.Demethos('Galicia'),
+				servers.GMS.Demethos('El Nido'),
+				servers.GMS.Demethos('Zenith'),
+				servers.GMS.Demethos('Arcania'),
 				servers.GMS.Mardia('Chaos'),
-				servers.GMS.Bellocan('Nova')
+				servers.GMS.Bellocan('Nova'),
+				servers.GMS.Renegades
 			]
 		)
 	]
@@ -2472,12 +2983,12 @@ var checker = {
 ],
 settings: {
 	pingOffset: ko.observable(0),
-	delay: ko.observable(readCookie("Delay") ? readCookie("Delay") : 100),
-	clickToRefresh: ko.observable(readCookie("ClickToRefresh") == "false" ? false : false),
-	fixPing: ko.observable(readCookie("FixPing") == "false" ? false : true),
-	showConnection: ko.observable(readCookie("ShowConnection") == "false" ? false : true),
-	showIPPort: ko.observable(readCookie("ShowIPPort") == "false" ? false : true),
-	timeout: ko.observable(readCookie("Timeout") ? readCookie("Timeout") : 5000),
+	delay: ko.observable(100),
+	clickToRefresh: ko.observable(false),
+	fixPing: ko.observable(true),
+	showConnection: ko.observable(true),
+	showIPPort: ko.observable(true),
+	timeout: ko.observable(5000),
 	showControls: ko.observable(false)
 }
 };
@@ -2531,8 +3042,6 @@ function ModifySettings() {
 	createCookie("ShowConnection", checker.settings.showConnection(), 3650);
 	createCookie("ClickToRefresh", checker.settings.clickToRefresh(), 3650);
 	createCookie("FixPing", checker.settings.fixPing(), 3650);
-
-	window.location.reload();
 }
 
 function DefaultSettings() {
@@ -2542,6 +3051,30 @@ function DefaultSettings() {
 	checker.settings.showConnection(showConnection);
 	checker.settings.clickToRefresh(clickToRefresh);
 	checker.settings.fixPing(fixPing);
+}
+
+function GetServersCountForApplication(version, name) {
+	console.log(version, name);
+	var v = false;
+	for (var i = 0; i < checker.versions.length; i++) {
+		if (checker.versions[i].name == version) {
+			v = checker.versions[i];
+			break;
+		}
+	}
+	console.log(v);
+
+	if (v == false) {
+		return 0;
+	}
+
+	for (var j = 0; j < v.applications.length; j++) {
+		if (v.applications[j].name == name) {
+			return v.serverCount[j];
+		}
+	}
+
+	return 0;
 }
 
 function createCookie(name,value,days) {
