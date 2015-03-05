@@ -517,6 +517,7 @@ div.info ul li.clickable {
 div.info span {
 	color: #ECEFF1;
 	display: table-cell;
+	height: 20px;
 	padding: 4px 6px 4px 3px;
 	text-align: left;
 	transition: 0.2s;
@@ -533,6 +534,17 @@ div.info span.icon img {
 	height: 20px;
 	vertical-align: top;
 	width: 20px;
+}
+
+div.info span strong {
+	font-weight: 400;
+}
+
+div.info span small {
+	color: #D6D6D6;
+	font-size: 10px;
+	font-weight: 300;
+	margin: 0 0 0 1px;
 }
 
 div.servers {
