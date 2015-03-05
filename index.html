@@ -3,7 +3,8 @@
 <head>
 	<title>MapleStory Status Checker</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf8">
+	<!--<meta charset="utf8">-->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="icon" type="image/png" href="icons/Nexon.png">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="icons/css/font-awesome.min.css">
@@ -178,7 +179,7 @@
 		</h1>
 		<h2>
 			<small>Selected server:</small>
-			<img data-bind="attr: { src: 'icons/' + ($root.subSelection() == 'Login' ? 'Mushroom' : $root.subSelection() ) + '.png' }" />
+			<img data-bind="attr: { src: 'icons/' + ( $root.selectedIcon() ) + '.png' }" />
 			<span data-bind="html: $root.subSelection()"></span>
 		</h2>
 		<p>To select a different world, click on its name in the Game Servers sidebar!</p>
@@ -193,6 +194,7 @@
 				<h2>Coming Soon!</h2>
 				<p>We haven't added <span data-bind="text: abbr"></span>'s servers yet, but we're planning on doing this really soon!</p>
 			</div>
+		</section>
 	</div>
 	<!-- /ko -->
 	<div class="wrapper" data-bind="foreach: { data: applications, afterRender: rendered < $data.applications.length ? $root.updateSelectedServers($data.applications[rendered], rendered++) : null }, visible: true" style="display:none">
@@ -202,9 +204,16 @@
 				<ul data-bind="foreach: icons">
 					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS')) }, click: function() { if ($parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS'))) { $root.updateSelectedServers($parent, 0, name) } }">
 						<span class="icon">
+							<!-- ko if: icon.charAt(0) != 'f' -->
 							<img data-bind="attr: { src: 'icons/' + icon }" />
+							<!-- /ko -->
 						</span>
-						<span data-bind="text: name"></span>
+						<span>
+							<strong data-bind="text: name"></strong>
+							<!-- ko if: english -->
+							<small data-bind="text: english"></small>
+							<!-- /ko -->
+						</span>
 					</li>
 				</ul>
 				<!-- ko if: description -->

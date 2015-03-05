@@ -11,15 +11,16 @@ var checkTimeout = 5000,
 		hash = window.location.hash.split('-'),
 		alreadyProcessed = [],
 		rendered = 0,
-		loadingTimers = [];
+		loadingTimers = [],
+		loadingArr = [{ loading: true, unknown: true }];
 
 if (hash.length) {
 	switch (hash[0]) {
 		case "#EMS":
 		case "#GMS":
-		/*case "#JMS":
+		//case "#JMS":
 		case "#KMS":
-		case "#MSEA":
+		/*case "#MSEA":
 		case "#MS2":*/
 			selected = hash[0].replace('#', '');
 			break;
@@ -85,6 +86,8 @@ var PingModel = function (servers) {
 
 	var serversArr = [];
 
+	var x = servers;
+
 	for (var i = 0; i < servers.length; i++)
 		for (var j = 0; j < servers[i].length; j++)
 				serversArr.push(servers[i][j]);
@@ -138,7 +141,7 @@ var GameServer = function(version, icons, servers) {
 	return {
 		name: "Game Servers",
 		description: "These are the MapleStory " + version + " game servers.",
-		selectedServers: ko.observable(null),
+		selectedServers: ko.observable(loadingArr),
 		icons: icons,
 		content: function() { return new PingModel(servers) }
 	}
@@ -2847,6 +2850,261 @@ var servers = {
 				rel: "nexon.net"
 			}
 		]
+	},
+	KMS: {
+		Login: [
+			{
+				icon: "Mushroom.png",
+				name: "Login",
+				address: "175.207.0.34",
+				port: "8484",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Login"
+			}
+		],
+		'스카니아': [
+			{
+				icon: "Scania.png",
+				english: "Scania",
+				name: "Channel 1",
+				address: "175.207.0.65",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "스카니아"
+			},
+			{
+				icon: "Scania.png",
+				english: "Scania",
+				name: "Ch. 20세이상",
+				address: "175.207.0.65",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "스카니아"
+			}
+		],
+		// IE fails here, that's why the Korean text is wrapped in quotes.
+		'베라': [
+			{
+				icon: "Bera.png",
+				english: "Bera",
+				name: "Channel 1",
+				address: "175.207.0.70",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "베라"
+			},
+			{
+				icon: "Bera.png",
+				english: "Bera",
+				name: "Ch. 20세이상",
+				address: "175.207.0.70",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "베라"
+			}
+		],
+		'루나': [
+			{
+				icon: "Luna.png",
+				english: "Luna",
+				name: "Channel 1",
+				address: "175.207.0.80",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "루나"
+			},
+			{
+				icon: "Luna.png",
+				english: "Luna",
+				name: "Ch. 20세이상",
+				address: "175.207.0.80",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "루나"
+			}
+		],
+		'제니스': [
+			{
+				icon: "Zenith.png",
+				english: "Zenith",
+				name: "Channel 1",
+				address: "175.207.0.85",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "제니스"
+			},
+			{
+				icon: "Zenith.png",
+				english: "Zenith",
+				name: "Ch. 20세이상",
+				address: "175.207.0.85",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "제니스"
+			}
+		],
+		'크로아': [
+			{
+				icon: "Croa.png",
+				english: "Croa",
+				name: "Channel 1",
+				address: "175.207.0.90",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "크로아"
+			},
+			{
+				icon: "Croa.png",
+				english: "Croa",
+				name: "Ch. 20세이상",
+				address: "175.207.0.90",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "크로아"
+			}
+		],
+		'유니온': [
+			{
+				icon: "Union.png",
+				english: "Union",
+				name: "Channel 1",
+				address: "175.207.0.246",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "유니온"
+			},
+			{
+				icon: "Union.png",
+				english: "Union",
+				name: "Ch. 20세이상",
+				address: "175.207.0.115",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "유니온"
+			}
+		],
+		'엘리시움': [
+			{
+				icon: "Elysium.png",
+				english: "Elysium",
+				name: "Channel 1",
+				address: "175.207.0.140",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "엘리시움"
+			},
+			{
+				icon: "Elysium.png",
+				english: "Elysium",
+				name: "Ch. 20세이상",
+				address: "175.207.0.140",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "엘리시움"
+			}
+		],
+		'이노시스': [
+			{
+				icon: "Enosis.png",
+				english: "Enosis",
+				name: "Channel 1",
+				address: "175.207.0.165",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "이노시스"
+			},
+			{
+				icon: "Enosis.png",
+				english: "Enosis",
+				name: "Ch. 20세이상",
+				address: "175.207.0.165",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "이노시스"
+			}
+		],
+		'레드': [
+			{
+				icon: "Red.png",
+				english: "Red",
+				name: "Channel 1",
+				address: "175.207.0.235",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "레드"
+			},
+			{
+				icon: "Red.png",
+				english: "Red",
+				name: "Ch. 20세이상",
+				address: "175.207.0.235",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "레드"
+			}
+		],
+		'오로라': [
+			{
+				icon: "Aurora.png",
+				english: "Aurora",
+				name: "Channel 1",
+				address: "175.207.0.230",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "오로라"
+			},
+			{
+				icon: "Aurora.png",
+				english: "Aurora",
+				name: "Ch. 20세이상",
+				address: "175.207.0.230",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "오로라"
+			}
+		]
 	}
 }
 
@@ -2876,21 +3134,25 @@ var checker = {
 					{
 						icon: "Mushroom.png",
 						name: "Login",
+						english: false,
 						sub: ""
 					},
 					{
 						icon: "Kradia.png",
 						name: "Kradia",
+						english: false,
 						sub: "World"
 					},
 					{
 						icon: "Demethos.png",
 						name: "Demethos",
+						english: false,
 						sub: "World"
 					},
 					{
 						icon: "Supreme.png",
 						name: "Supreme",
+						english: false,
 						sub: "World"
 					}
 				],
@@ -2908,11 +3170,13 @@ var checker = {
 			{
 				icon: "Mushroom.png",
 				name: "mapleeu.com",
+				english: false,
 				sub: ""
 			},
 			{
 				icon: "Nexon.png",
 				name: "nexoneu.com",
+				english: false,
 				sub: "World"
 			}
 		],
@@ -2921,12 +3185,12 @@ var checker = {
 				servers.EMS.InternalWebsites
 			])
 		},
-		selectedServers: ko.observable(null)
+		selectedServers: ko.observable(loadingArr)
 	},
 	{
 		name: "External Sites",
 		description: "These are pages which are hosted on external servers.",
-		selectedServers: ko.observable(null),
+		selectedServers: ko.observable(loadingArr),
 		icons: [],
 		content: function() {
 			return new PingModel([
@@ -2951,86 +3215,103 @@ var checker = {
 				{
 					icon: "Mushroom.png",
 					name: "Login",
+					english: false,
 					sub: ""
 				},
 				{
 					icon: "Scania.png",
 					name: "Scania",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Bera.png",
 					name: "Bera",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Broa.png",
 					name: "Broa",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Bellocan.png",
 					name: "Bellocan",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Khaini.png",
 					name: "Khaini",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Mardia.png",
 					name: "Mardia",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Kradia.png",
 					name: "Kradia",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Yellonde.png",
 					name: "Yellonde",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Demethos.png",
 					name: "Demethos",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Galicia.png",
 					name: "Galicia",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "El Nido.png",
 					name: "El Nido",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Zenith.png",
 					name: "Zenith",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Arcania.png",
 					name: "Arcania",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Chaos.png",
 					name: "Chaos",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Nova.png",
 					name: "Nova",
+					english: false,
 					sub: "World"
 				},
 				{
 					icon: "Renegades.png",
 					name: "Renegades",
+					english: false,
 					sub: "World"
 				}
 			],
@@ -3060,11 +3341,12 @@ var checker = {
 	{
 		name: "Websites",
 		description: "These are pages related to Nexon America's internal and external servers.",
-		selectedServers: ko.observable(null),
+		selectedServers: ko.observable(loadingArr),
 		icons: [
 			{
 				icon: "Nexon.png",
 				name: "nexon.net",
+				english: false,
 				sub: "World"
 			}
 		],
@@ -3089,11 +3371,97 @@ var checker = {
 	{
 		abbr: "KMS",
 		name: "MapleStory Korea <small>(한국)</small>",
-		available: false,
+		available: true,
 		complete: false,
 		icon: "Mushroom.png",
 		short: "한국 | Korea",
+		serverCount: [
+			11
+		],
 		applications: [
+			GameServer("Korea", [
+					{
+						icon: "Mushroom.png",
+						name: "Login",
+						english: false,
+						sub: ""
+					},
+					{
+						icon: "Scania.png",
+						name: "스카니아",
+						english: "Scania",
+						sub: "World"
+					},
+					{
+						icon: "Bera.png",
+						name: "베라",
+						english: "Bera",
+						sub: "World"
+					},
+					{
+						icon: "Luna.png",
+						name: "루나",
+						english: "Luna",
+						sub: "World"
+					},
+					{
+						icon: "Zenith.png",
+						name: "제니스",
+						english: "Zenith",
+						sub: "World"
+					},
+					{
+						icon: "Croa.png",
+						name: "크로아",
+						english: "Croa",
+						sub: "World"
+					},
+					{
+						icon: "Union.png",
+						name: "유니온",
+						english: "Union",
+						sub: "World"
+					},
+					{
+						icon: "Elysium.png",
+						name: "엘리시움",
+						english: "Enysium",
+						sub: "World"
+					},
+					{
+						icon: "Enosis.png",
+						name: "이노시스",
+						english: "Enosis",
+						sub: "World"
+					},
+					{
+						icon: "Red.png",
+						name: "레드",
+						english: "Red",
+						sub: "World"
+					},
+					{
+						icon: "Aurora.png",
+						name: "오로라",
+						english: "Aurora",
+						sub: "World"
+					}
+				],
+				[
+					servers.KMS.Login,
+					// Not using dot notation because IE sucks.
+					servers.KMS['스카니아'],
+					servers.KMS['베라'],
+					servers.KMS['루나'],
+					servers.KMS['제니스'],
+					servers.KMS['크로아'],
+					servers.KMS['유니온'],
+					servers.KMS['엘리시움'],
+					servers.KMS['이노시스'],
+					servers.KMS['레드'],
+					servers.KMS['오로라']
+				]
+			)
 		]
 	},
 	{
@@ -3118,6 +3486,7 @@ var checker = {
 	}
 ],
 updateSelectedServers: UpdateSelectedServers,
+selectedIcon: ko.observable(GetEnglishIconNameForServer(this.subSelection)),
 settings: {
 	pingOffset: ko.observable(0),
 	delay: ko.observable(readCookie("Delay") ? readCookie("Delay") : 100),
@@ -3130,21 +3499,54 @@ settings: {
 }
 };
 
+checker.subSelection.subscribe(function(newValue) {
+	checker.selectedIcon(GetEnglishIconNameForServer(newValue));
+});
+
 if (selected != 'Main') {
 	GetPingOffset();
 }
 
 ko.applyBindings(checker);
 
+function GetEnglishIconNameForServer(serverName) {
+	switch (serverName) {
+		case "스카니아":
+			return "Scania";
+		case "베라":
+			return "Bera";
+		case "루나":
+			return "Luna";
+		case "제니스":
+			return "Zenith";
+		case "크로아":
+			return "Croa";
+		case "유니온":
+			return "Union";
+		case "엘리시움":
+			return "Elysium";
+		case "이노시스":
+			return "Enosis";
+		case "레드":
+			return "Red";
+		case "오로라":
+			return "Aurora";
+		case "Login":
+			return "Mushroom";
+		default:
+			return serverName;
+	}
+}
+
 function UpdateSelectedServers(parent, index, name) {
-	console.log(parent, index, name);
+	//console.log(parent, index, name);
 	var name = name || checker.subSelection();
 
 	if (loadingTimers.length > index) {
 		window.clearInterval(loadingTimers[index]);
 	}
 
-	parent.selectedServers([{ loading: true, unknown: true }]);
+	parent.selectedServers(loadingArr);
 	window.location.hash = '#' + checker.selected() + '-' + name;
 	subSelection = name;
 	checker.subSelection(name);
@@ -3179,6 +3581,8 @@ function GetDefaultSubSelectionForVersion(version) {
 			return 'Kradia';
 		case 'GMS':
 			return 'Login';
+		case 'KMS':
+			return '스카니아';
 		default:
 			return;
 	}
