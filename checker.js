@@ -11,15 +11,16 @@ var checkTimeout = 5000,
 		hash = window.location.hash.split('-'),
 		alreadyProcessed = [],
 		rendered = 0,
-		loadingTimers = [];
+		loadingTimers = [],
+		loadingArr = [{ loading: true, unknown: true }];
 
 if (hash.length) {
 	switch (hash[0]) {
 		case "#EMS":
 		case "#GMS":
-		/*case "#JMS":
+		//case "#JMS":
 		case "#KMS":
-		case "#MSEA":
+		/*case "#MSEA":
 		case "#MS2":*/
 			selected = hash[0].replace('#', '');
 			break;
@@ -122,7 +123,7 @@ var PingModel = function (servers) {
 				if (s.name == "Self") {
 					SetPingOffset(time);
 				}
-				console.clear();
+				//console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -138,7 +139,7 @@ var GameServer = function(version, icons, servers) {
 	return {
 		name: "Game Servers",
 		description: "These are the MapleStory " + version + " game servers.",
-		selectedServers: ko.observable(null),
+		selectedServers: ko.observable(loadingArr),
 		icons: icons,
 		content: function() { return new PingModel(servers) }
 	}
@@ -2847,6 +2848,116 @@ var servers = {
 				rel: "nexon.net"
 			}
 		]
+	},
+	KMS: {
+		Login: [
+			{
+				icon: "Mushroom.png",
+				name: "Login",
+				address: "175.207.0.34",
+				port: "8484",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Login"
+			}
+		],
+		스카니아: [
+			{
+				icon: "Scania.png",
+				english: "Scania",
+				name: "Channel 1",
+				address: "175.207.0.65",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "스카니아"
+			},
+			{
+				icon: "Scania.png",
+				english: "Scania",
+				name: "Channel 20세이상",
+				address: "175.207.0.65",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "스카니아"
+			}
+		],
+		베라: [
+			{
+				icon: "Bera.png",
+				english: "Bera",
+				name: "Channel 1",
+				address: "175.207.0.70",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "베라"
+			},
+			{
+				icon: "Bera.png",
+				english: "Bera",
+				name: "Channel 20세이상",
+				address: "175.207.0.70",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "베라"
+			}
+		],
+		베라: [
+			{
+				icon: "Luna.png",
+				english: "Luna",
+				name: "Channel 1",
+				address: "175.207.0.80",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "베라"
+			},
+			{
+				icon: "Luna.png",
+				english: "Luna",
+				name: "Channel 20세이상",
+				address: "175.207.0.80",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "베라"
+			}
+		],
+		베라: [
+			{
+				icon: "Zenith.png",
+				english: "Zenith",
+				name: "Channel 1",
+				address: "175.207.0.85",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "베라"
+			},
+			{
+				icon: "Scania.png",
+				english: "Zenith",
+				name: "Channel 20세이상",
+				address: "175.207.0.85",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "베라"
+			}
+		]
 	}
 }
 
@@ -2921,12 +3032,12 @@ var checker = {
 				servers.EMS.InternalWebsites
 			])
 		},
-		selectedServers: ko.observable(null)
+		selectedServers: ko.observable(loadingArr)
 	},
 	{
 		name: "External Sites",
 		description: "These are pages which are hosted on external servers.",
-		selectedServers: ko.observable(null),
+		selectedServers: ko.observable(loadingArr),
 		icons: [],
 		content: function() {
 			return new PingModel([
@@ -3060,7 +3171,7 @@ var checker = {
 	{
 		name: "Websites",
 		description: "These are pages related to Nexon America's internal and external servers.",
-		selectedServers: ko.observable(null),
+		selectedServers: ko.observable(loadingArr),
 		icons: [
 			{
 				icon: "Nexon.png",
@@ -3089,11 +3200,49 @@ var checker = {
 	{
 		abbr: "KMS",
 		name: "MapleStory Korea <small>(한국)</small>",
-		available: false,
+		available: true,
 		complete: false,
 		icon: "Mushroom.png",
 		short: "한국 | Korea",
+		serverCount: [
+			11
+		],
 		applications: [
+			GameServer("Korea", [
+					{
+						icon: "Mushroom.png",
+						name: "Login",
+						sub: ""
+					},
+					{
+						icon: "Scania.png",
+						name: "스카니아",
+						sub: "World"
+					},
+					{
+						icon: "Bera.png",
+						name: "베라",
+						sub: "World"
+					},
+					{
+						icon: "Luna.png",
+						name: "루나",
+						sub: "World"
+					},
+					{
+						icon: "Zenith.png",
+						name: "제니스",
+						sub: "World"
+					}
+				],
+				[
+					servers.KMS.Login,
+					servers.KMS.스카니아,
+					servers.KMS.베라,
+					servers.KMS.루나,
+					servers.KMS.제니스
+				]
+			)
 		]
 	},
 	{
@@ -3144,7 +3293,7 @@ function UpdateSelectedServers(parent, index, name) {
 		window.clearInterval(loadingTimers[index]);
 	}
 
-	parent.selectedServers([{ loading: true, unknown: true }]);
+	parent.selectedServers(loadingArr);
 	window.location.hash = '#' + checker.selected() + '-' + name;
 	subSelection = name;
 	checker.subSelection(name);
@@ -3179,6 +3328,8 @@ function GetDefaultSubSelectionForVersion(version) {
 			return 'Kradia';
 		case 'GMS':
 			return 'Login';
+		case 'KMS':
+			return '스카니아';
 		default:
 			return;
 	}

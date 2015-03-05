@@ -202,7 +202,9 @@
 				<ul data-bind="foreach: icons">
 					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS')) }, click: function() { if ($parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS'))) { $root.updateSelectedServers($parent, 0, name) } }">
 						<span class="icon">
+							<!-- ko if: icon.charAt(0) != 'f' -->
 							<img data-bind="attr: { src: 'icons/' + icon }" />
+							<!-- /ko -->
 						</span>
 						<span data-bind="text: name"></span>
 					</li>
