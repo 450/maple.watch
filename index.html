@@ -228,7 +228,7 @@
 							<!-- /ko -->
 							<span data-bind="html: sub ? name + ' <small>' + sub + '</small>' : name"></span>
 						</h3>
-						<dl>
+						<dl data-bind="css: { hidden: !$root.settings.showIPPort() }">
 							<dt>IP</dt>
 							<dd class="address" data-bind="html: isNaN('' + address.charAt(0)) ? '<a target=\'_blank\' href=\'http' + (port == 443 ? 's' : '') + '://' + address + '\'>' + address + '</a>' : address, attr: { title: address }"></dd>
 							<dt>Port</dt>
@@ -237,7 +237,7 @@
 					</div>
 					<div class="status" data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }">
 						<div class="text" data-bind="text: status() == 'timeout' ? 'No Response' : time() > 0 ? (time() > $root.settings.pingOffset() > 0 ? time() - $root.settings.pingOffset() : 0) < 1000 ? 'Online!' : 'Online! Slow...' : 'Checking...'"></div>
-						<div class="time" data-bind="text: time() !== '' && status() != 'timeout' ? (time() > $root.settings.pingOffset() > 0 ? time() - $root.settings.pingOffset() : 0) + 'ms' : ''"></div>
+						<div class="time" data-bind="css: { hidden: !$root.settings.showConnection() }, text: time() !== '' && status() != 'timeout' ? (time() > $root.settings.pingOffset() > 0 ? time() - $root.settings.pingOffset() : 0) + 'ms' : ''"></div>
 					</div>
 				</article>
 				<!-- /ko -->
