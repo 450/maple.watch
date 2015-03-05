@@ -9,7 +9,9 @@ var checkTimeout = 5000,
 		subSelection = "",
 		processing = 0,
 		hash = window.location.hash.split('-'),
-		alreadyProcessed = [];
+		alreadyProcessed = [],
+		rendered = 0,
+		loadingTimers = [];
 
 if (hash.length) {
 	switch (hash[0]) {
@@ -136,6 +138,7 @@ var GameServer = function(version, icons, servers) {
 	return {
 		name: "Game Servers",
 		description: "These are the MapleStory " + version + " game servers.",
+		selectedServers: ko.observable(null),
 		icons: icons,
 		content: function() { return new PingModel(servers) }
 	}
@@ -2729,6 +2732,120 @@ var servers = {
 				isMapleStoryGameServer: true,
 				rel: "Renegades"
 			}
+		],
+		Websites:[
+			{
+				icon: "Mushroom.png",
+				name: "MapleStory",
+				sub: "",
+				address: "maplestory.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Mushroom.png",
+				name: "Tespia",
+				sub: "www",
+				address: "maplestoryt.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Nexon",
+				sub: "www",
+				address: "nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Nexon",
+				sub: "SSL",
+				address: "nexon.net",
+				port: "443",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Forum",
+				sub: "",
+				address: "forum2.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Support",
+				sub: "",
+				address: "support.maplestory.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Download",
+				sub: "",
+				address: "download2.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Press",
+				sub: "",
+				address: "press.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Avatars",
+				sub: "NXA",
+				address: "msavatar1.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Images",
+				sub: "NXA",
+				address: "nxcache.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Admin",
+				sub: "NXA",
+				address: "admin.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Event",
+				sub: "NXA",
+				address: "event.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "API",
+				sub: "NXA",
+				address: "api.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Guard",
+				sub: "NXA",
+				address: "guard.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			}
 		]
 	}
 }
@@ -2803,11 +2920,13 @@ var checker = {
 			return new PingModel([
 				servers.EMS.InternalWebsites
 			])
-		}
+		},
+		selectedServers: ko.observable(null)
 	},
 	{
 		name: "External Sites",
 		description: "These are pages which are hosted on external servers.",
+		selectedServers: ko.observable(null),
 		icons: [],
 		content: function() {
 			return new PingModel([
@@ -2821,7 +2940,7 @@ var checker = {
 	abbr: "GMS",
 	name: "MapleStory North America <small>(Global)</small>",
 	available: true,
-	complete: false,
+	complete: true,
 	icon: "Scania.png",
 	short: "North America (Global)",
 	serverCount: [
@@ -2937,7 +3056,24 @@ var checker = {
 				servers.GMS.Bellocan('Nova'),
 				servers.GMS.Renegades
 			]
-		)
+		),
+	{
+		name: "Websites",
+		description: "These are pages related to Nexon America's internal and external servers.",
+		selectedServers: ko.observable(null),
+		icons: [
+			{
+				icon: "Nexon.png",
+				name: "nexon.net",
+				sub: "World"
+			}
+		],
+		content: function() {
+			return new PingModel([
+				servers.GMS.Websites
+			])
+		}
+	}
 	]
 },
 	{
@@ -2981,6 +3117,7 @@ var checker = {
 		]
 	}
 ],
+updateSelectedServers: UpdateSelectedServers,
 settings: {
 	pingOffset: ko.observable(0),
 	delay: ko.observable(readCookie("Delay") ? readCookie("Delay") : 100),
@@ -2998,6 +3135,25 @@ if (selected != 'Main') {
 }
 
 ko.applyBindings(checker);
+
+function UpdateSelectedServers(parent, index, name) {
+	console.log(parent, index, name);
+	var name = name || checker.subSelection();
+
+	if (loadingTimers.length > index) {
+		window.clearInterval(loadingTimers[index]);
+	}
+
+	parent.selectedServers([{ loading: true, unknown: true }]);
+	window.location.hash = '#' + checker.selected() + '-' + name;
+	subSelection = name;
+	checker.subSelection(name);
+
+	loadingTimers.push(setTimeout(function() {
+		var content = parent.content();
+		parent.selectedServers(parent.content().servers());
+	}, 300));
+}
 
 function GetCheckTimeout() {
 	return checker.settings.timeout();
