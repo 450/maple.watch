@@ -7,11 +7,6 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-dl.hidden,
-div.time.hidden {
-	display: none;
-}
-
 input, select, textarea, button {
 	font-family: 'Open Sans', sans-serif;
 }
@@ -223,7 +218,7 @@ nav div.settings span:focus {
 }
 
 #controls label span {
-	cursor: default;
+	cursor: pointer;
 	display: table-cell;
 	font-size: 14px;
 	font-weight: 600;
@@ -277,7 +272,8 @@ div#loading {
 	margin: 40px auto;
 }
 
-div#loading p {
+div#loading p,
+p.loading {
 	color: #546E7A;
 	font-size: 20px;
 	font-weight: 300;
@@ -703,8 +699,8 @@ div.servers article.revealed {
 	background: #FFF9C4;
 }
 
-div.info ul li:hover,
-div.info ul li:focus,
+div.info ul li.clickable:hover,
+div.info ul li.clickable:focus,
 div.info ul li.active {
 	background: #37474F;
 }
@@ -755,10 +751,6 @@ footer#footer a {
 		right: 0;
 	}
 
-	#controls article {
-		width: 449px;
-	}
-
 	div#main-page section article div.fake-table {
 		display: block;
 	}
@@ -778,19 +770,11 @@ footer#footer a {
 	div.wrapper {
 		width: 964px;
 	}
-
-	#controls article {
-		width: 369px;
-	}
 }
 
 @media screen and (max-width: 1024px) {
 	div.wrapper {
 		width: 804px;
-	}
-
-	#controls article {
-		width: 612px;
 	}
 
 	nav div.select ul {
@@ -813,8 +797,8 @@ footer#footer a {
 		display: inline-block;
 	}
 
-	#controls article {
-		width: 452px;
+	dl {
+		display: none;
 	}
 
 	div#main-page section article div.fake-table div.tutorial img {
@@ -827,22 +811,6 @@ footer#footer a {
 		width: 484px;
 	}
 
-	#controls article {
-		width: 292px;
-	}
-
-	#controls label span.control {
-		width: 116px;
-	}
-
-	#controls label input {
-		width: 100px;
-	}
-
-	#controls footer {
-		margin: 0;
-	}
-
 	div#main-page section article div.fake-table div.tutorial img {
 		width: 444px;
 	}
@@ -851,12 +819,6 @@ footer#footer a {
 @media screen and (max-width: 500px) {
 	div.wrapper {
 		width: 320px;
-	}
-
-	nav div.settings,
-	#controls,
-	dl {
-		display: none;
 	}
 
 	div#main-page section article div.fake-table div.tutorial img {

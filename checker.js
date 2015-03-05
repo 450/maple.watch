@@ -9,7 +9,9 @@ var checkTimeout = 5000,
 		subSelection = "",
 		processing = 0,
 		hash = window.location.hash.split('-'),
-		alreadyProcessed = [];
+		alreadyProcessed = [],
+		rendered = 0,
+		loadingTimers = [];
 
 if (hash.length) {
 	switch (hash[0]) {
@@ -120,7 +122,7 @@ var PingModel = function (servers) {
 				if (s.name == "Self") {
 					SetPingOffset(time);
 				}
-				console.clear();
+				//console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -136,6 +138,7 @@ var GameServer = function(version, icons, servers) {
 	return {
 		name: "Game Servers",
 		description: "These are the MapleStory " + version + " game servers.",
+		selectedServers: ko.observable(null),
 		icons: icons,
 		content: function() { return new PingModel(servers) }
 	}
@@ -2834,6 +2837,14 @@ var servers = {
 				address: "api.nexon.net",
 				port: "80",
 				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Guard",
+				sub: "NXA",
+				address: "guard.nexon.net",
+				port: "80",
+				rel: "nexon.net"
 			}
 		]
 	}
@@ -2909,11 +2920,13 @@ var checker = {
 			return new PingModel([
 				servers.EMS.InternalWebsites
 			])
-		}
+		},
+		selectedServers: ko.observable(null)
 	},
 	{
 		name: "External Sites",
 		description: "These are pages which are hosted on external servers.",
+		selectedServers: ko.observable(null),
 		icons: [],
 		content: function() {
 			return new PingModel([
@@ -2927,7 +2940,7 @@ var checker = {
 	abbr: "GMS",
 	name: "MapleStory North America <small>(Global)</small>",
 	available: true,
-	complete: false,
+	complete: true,
 	icon: "Scania.png",
 	short: "North America (Global)",
 	serverCount: [
@@ -3047,7 +3060,8 @@ var checker = {
 	{
 		name: "Websites",
 		description: "These are pages related to Nexon America's internal and external servers.",
-			icons: [
+		selectedServers: ko.observable(null),
+		icons: [
 			{
 				icon: "Nexon.png",
 				name: "nexon.net",
@@ -3103,6 +3117,7 @@ var checker = {
 		]
 	}
 ],
+updateSelectedServers: UpdateSelectedServers,
 settings: {
 	pingOffset: ko.observable(0),
 	delay: ko.observable(readCookie("Delay") ? readCookie("Delay") : 100),
@@ -3120,6 +3135,25 @@ if (selected != 'Main') {
 }
 
 ko.applyBindings(checker);
+
+function UpdateSelectedServers(parent, index, name) {
+	console.log(parent, index, name);
+	var name = name || checker.subSelection();
+
+	if (loadingTimers.length > index) {
+		window.clearInterval(loadingTimers[index]);
+	}
+
+	parent.selectedServers([{ loading: true, unknown: true }]);
+	window.location.hash = '#' + checker.selected() + '-' + name;
+	subSelection = name;
+	checker.subSelection(name);
+
+	loadingTimers.push(setTimeout(function() {
+		var content = parent.content();
+		parent.selectedServers(parent.content().servers());
+	}, 300));
+}
 
 function GetCheckTimeout() {
 	return checker.settings.timeout();

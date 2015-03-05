@@ -195,12 +195,12 @@
 			</div>
 	</div>
 	<!-- /ko -->
-	<div class="wrapper" data-bind="foreach: applications, visible: true" style="display:none">
+	<div class="wrapper" data-bind="foreach: { data: applications, afterRender: rendered < $data.applications.length ? $root.updateSelectedServers($data.applications[rendered], rendered++) : null }, visible: true" style="display:none">
 		<section data-bind="style: { minHeight: (($root.getServersCountForApplication($parent.name, name) * 30) + 95) + 'px' }">
 			<div class="info">
 				<h2 data-bind="text: name"></h2>
 				<ul data-bind="foreach: icons">
-					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS')) }, click: function() { if ($parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS'))) { if (window.stop) { window.stop(); } else if (document.execCommand) { document.execCommand('Stop'); }; window.location.hash = '#' + $root.selected() + '-' + name; window.location.reload(); } }">
+					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS')) }, click: function() { if ($parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS'))) { $root.updateSelectedServers($parent, 0, name) } }">
 						<span class="icon">
 							<img data-bind="attr: { src: 'icons/' + icon }" />
 						</span>
@@ -211,7 +211,10 @@
 				<p data-bind="text: description"></p>
 				<!-- /ko -->
 			</div>
-			<div class="servers" data-bind="foreach: content().servers">
+			<div class="servers" data-bind="foreach: selectedServers()">
+				<!-- ko if: loading == true -->
+				<p class="loading"><i class="fa fa-cog fa-spin"></i> Loading, please wait...</p>
+				<!-- /ko -->
 				<!-- ko if: unknown == false -->
 				<!-- ko if: $parent.name != "Game Servers" || rel == $root.subSelection() || (rel == 'Login' || (rel != 'Login' && $root.selected() == 'GMS')) -->
 				<!-- ko if: name == "Channel 1" || name == "Cash Shop" || name == "Star Planet 1" || name == "Boss Arena 1" || name == "Cross World" || name == "Monster Life" || name == "Evolution Lab" -->
