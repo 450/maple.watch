@@ -2729,6 +2729,112 @@ var servers = {
 				isMapleStoryGameServer: true,
 				rel: "Renegades"
 			}
+		],
+		Websites:[
+			{
+				icon: "Mushroom.png",
+				name: "MapleStory",
+				sub: "",
+				address: "maplestory.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Mushroom.png",
+				name: "Tespia",
+				sub: "www",
+				address: "maplestoryt.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Nexon",
+				sub: "www",
+				address: "nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Nexon",
+				sub: "SSL",
+				address: "nexon.net",
+				port: "443",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Forum",
+				sub: "",
+				address: "forum2.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Support",
+				sub: "",
+				address: "support.maplestory.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Download",
+				sub: "",
+				address: "download2.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "Nexon.png",
+				name: "Press",
+				sub: "",
+				address: "press.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Avatars",
+				sub: "NXA",
+				address: "msavatar1.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Images",
+				sub: "NXA",
+				address: "nxcache.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Admin",
+				sub: "NXA",
+				address: "admin.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "Event",
+				sub: "NXA",
+				address: "event.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			},
+			{
+				icon: "fa-globe",
+				name: "API",
+				sub: "NXA",
+				address: "api.nexon.net",
+				port: "80",
+				rel: "nexon.net"
+			}
 		]
 	}
 }
@@ -2937,7 +3043,23 @@ var checker = {
 				servers.GMS.Bellocan('Nova'),
 				servers.GMS.Renegades
 			]
-		)
+		),
+	{
+		name: "Websites",
+		description: "These are pages related to Nexon America's internal and external servers.",
+			icons: [
+			{
+				icon: "Nexon.png",
+				name: "nexon.net",
+				sub: "World"
+			}
+		],
+		content: function() {
+			return new PingModel([
+				servers.GMS.Websites
+			])
+		}
+	}
 	]
 },
 	{
