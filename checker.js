@@ -125,7 +125,7 @@ var PingModel = function (servers) {
 				if (s.name == "Self") {
 					SetPingOffset(time);
 				}
-				//console.clear();
+				console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -3539,7 +3539,7 @@ function GetEnglishIconNameForServer(serverName) {
 }
 
 function UpdateSelectedServers(parent, index, name) {
-	console.log(parent, index, name);
+	//console.log(parent, index, name);
 	var name = name || checker.subSelection();
 
 	if (loadingTimers.length > index) {
