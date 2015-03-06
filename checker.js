@@ -2038,6 +2038,238 @@ var PingModel = function (servers) {
 			isMapleStoryGameServer: true,
 			rel: "Khaini"
 		}],
+	Windia: [
+		{
+			icon: "Windia.png",
+			name: "Channel 1",
+			address: "8.31.99.231",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 2",
+			address: "8.31.99.232",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 3",
+			address: "8.31.99.232",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 4",
+			address: "8.31.99.232",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 5",
+			address: "8.31.99.233",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 6",
+			address: "8.31.99.233",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 7",
+			address: "8.31.99.233",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 8",
+			address: "8.31.99.234",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 9",
+			address: "8.31.99.234",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 10",
+			address: "8.31.99.234",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 11",
+			address: "8.31.99.235",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 12",
+			address: "8.31.99.235",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 13",
+			address: "8.31.99.235",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 14",
+			address: "8.31.99.236",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 15",
+			address: "8.31.99.236",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 16",
+			address: "8.31.99.236",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 17",
+			address: "8.31.99.237",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 18",
+			address: "8.31.99.237",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 19",
+			address: "8.31.99.237",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Channel 20",
+			address: "8.31.99.231",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Cash Shop",
+			address: "8.31.99.193",
+			port: "8785",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Monster Life",
+			address: "8.31.99.206",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		},
+		{
+			icon: "Windia.png",
+			name: "Evolution Lab",
+			address: "8.31.99.198",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "Windia"
+		}
+	],
 		Mardia: function(name) {
 			return [{
 				icon: name + ".png",
@@ -4050,7 +4282,7 @@ var checker = {
 		icon: "Scania.png",
 		short: "North America (Global)",
 		serverCount: [
-		17
+		18
 		],
 		applications: [
 		GameServer("Global", [
@@ -4087,6 +4319,12 @@ var checker = {
 		{
 			icon: "Khaini.png",
 			name: "Khaini",
+			english: false,
+			sub: "World"
+		},
+		{
+			icon: "Windia.png",
+			name: "Windia",
 			english: false,
 			sub: "World"
 		},
@@ -4167,6 +4405,7 @@ var checker = {
 		servers.GMS.Broa,
 		servers.GMS.Bellocan('Bellocan'),
 		servers.GMS.Khaini,
+		servers.GMS.Windia,
 		servers.GMS.Mardia('Mardia'),
 		servers.GMS.Mardia('Kradia'),
 		servers.GMS.Mardia('Yellonde'),
