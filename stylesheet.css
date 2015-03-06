@@ -7,6 +7,11 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+dl.hidden,
+div.time.hidden {
+	display: none;
+}
+
 input, select, textarea, button {
 	font-family: 'Open Sans', sans-serif;
 }
@@ -218,7 +223,7 @@ nav div.settings span:focus {
 }
 
 #controls label span {
-	cursor: pointer;
+	cursor: default;
 	display: table-cell;
 	font-size: 14px;
 	font-weight: 600;
@@ -745,6 +750,10 @@ footer#footer a {
 		width: 1124px;
 	}
 
+	#controls article {
+		width: 449px;
+	}
+
 	nav {
 		display: block;
 	}
@@ -782,11 +791,19 @@ footer#footer a {
 	div.wrapper {
 		width: 964px;
 	}
+
+	#controls article {
+		width: 369px;
+	}
 }
 
 @media screen and (max-width: 1024px) {
 	div.wrapper {
 		width: 804px;
+	}
+
+	#controls article {
+		width: 612px;
 	}
 
 	nav div.select ul {
@@ -809,6 +826,10 @@ footer#footer a {
 		display: inline-block;
 	}
 
+	#controls article {
+		width: 452px;
+	}
+
 	dl {
 		display: none;
 	}
@@ -823,6 +844,22 @@ footer#footer a {
 		width: 484px;
 	}
 
+	#controls article {
+		width: 292px;
+	}
+
+	#controls label span.control {
+		width: 116px;
+	}
+
+	#controls label input {
+		width: 100px;
+	}
+
+	#controls footer {
+		margin: 0;
+	}
+
 	div#main-page section article div.fake-table div.tutorial img {
 		width: 444px;
 	}
@@ -835,5 +872,11 @@ footer#footer a {
 
 	div#main-page section article div.fake-table div.tutorial img {
 		width: 280px;
+	}
+
+	nav div.settings,
+	#controls,
+	dl {
+		display: none;
 	}
 }
