@@ -202,7 +202,7 @@
 			<div class="info">
 				<h2 data-bind="text: name"></h2>
 				<ul data-bind="foreach: icons">
-					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS')) }, click: function() { if ($parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && $root.selected() == 'GMS'))) { $root.updateSelectedServers($parent, 0, name) } }">
+					<li role="button" data-bind="attr: { 'data-for': name }, css: { active: name == $root.subSelection(), clickable: $parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && ($root.selected() == 'GMS' || $root.selected() == 'MSEA'))) }, click: function() { if ($parent.name == 'Game Servers' && (name != 'Login' || (name == 'Login' && ($root.selected() == 'GMS' || $root.selected() == 'MSEA')))) { $root.updateSelectedServers($parent, 0, name) } }">
 						<span class="icon">
 							<!-- ko if: icon.charAt(0) != 'f' -->
 							<img data-bind="attr: { src: 'icons/' + icon }" />
@@ -225,8 +225,8 @@
 				<p class="loading"><i class="fa fa-cog fa-spin"></i> Loading, please wait...</p>
 				<!-- /ko -->
 				<!-- ko if: unknown == false -->
-				<!-- ko if: $parent.name != "Game Servers" || rel == $root.subSelection() || (rel == 'Login' || (rel != 'Login' && $root.selected() == 'GMS')) -->
-				<!-- ko if: name == "Channel 1" || name == "Cash Shop" || name == "Star Planet 1" || name == "Boss Arena 1" || name == "Cross World" || name == "Monster Life" || name == "Evolution Lab" -->
+				<!-- ko if: $parent.name != "Game Servers" || rel == $root.subSelection() || (rel == 'Login' || (rel != 'Login' && ($root.selected() == 'GMS' || $root.selected() == 'MSEA'))) -->
+				<!-- ko if: name == "Channel 1" || name == "Cash Shop" || name == "Artemis" || name == "Star Planet 1" || name == "Boss Arena 1" || name == "Merge World" || name == "Cross World" || name == "Monster Life" || name == "Evolution Lab" -->
 				<br>
 				<!-- /ko -->
 				<article data-bind="css: { ok: +time() > 0 && +time() < 1000, slow: +time() >= 1000, timeout: status() == 'timeout' }, attr: { 'data-rel': rel }">
