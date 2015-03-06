@@ -4267,7 +4267,7 @@ var checker = {
 	{
 		icon: "Elysium.png",
 		name: "엘리시움",
-		english: "Enysium",
+		english: "Elysium",
 		sub: "World"
 	},
 	{
