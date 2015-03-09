@@ -12,7 +12,8 @@ hash = window.location.hash.split('-'),
 alreadyProcessed = [],
 rendered = 0,
 loadingTimers = [],
-loadingArr = [{ loading: true, unknown: true }];
+loadingArr = [{ loading: true, unknown: true }],
+clockTicking = false;
 
 if (hash.length) {
 	switch (hash[0]) {
@@ -125,7 +126,7 @@ var PingModel = function (servers) {
 					if (s.name == "Self") {
 						SetPingOffset(time);
 					}
-					console.clear();
+					//console.clear();
 				/*if (s.interval) {
 					setTimeout(doPing, s.interval);
 				}*/
@@ -137,12 +138,13 @@ var PingModel = function (servers) {
 		});
 	};
 
-	var GameServer = function(version, icons, servers) {
+	var GameServer = function(version, timeOffset, icons, servers) {
 		return {
 			name: "Game Servers",
 			description: "These are the MapleStory " + version + " game servers.",
 			selectedServers: ko.observable(loadingArr),
 			icons: icons,
+			timeOffset: timeOffset,
 			content: function() { return new PingModel(servers) }
 		}
 	}
@@ -3118,6 +3120,215 @@ var PingModel = function (servers) {
 			values: [],
 			isMapleStoryGameServer: true,
 			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 2",
+			address: "175.207.0.240",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 3",
+			address: "175.207.0.240",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 4",
+			address: "175.207.0.241",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 5",
+			address: "175.207.0.66",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 6",
+			address: "175.207.0.66",
+			port: "8588",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 7",
+			address: "175.207.0.243",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 8",
+			address: "175.207.0.67",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 9",
+			address: "175.207.0.67",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 10",
+			address: "175.207.0.67",
+			port: "8588",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 11",
+			address: "175.207.0.68",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 12",
+			address: "175.207.0.68",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 13",
+			address: "175.207.0.68",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 14",
+			address: "175.207.0.243",
+			port: "8588",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 15",
+			address: "175.207.0.241",
+			port: "8585",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 16",
+			address: "175.207.0.250",
+			port: "8586",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 17",
+			address: "175.207.0.242",
+			port: "8587",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 18",
+			address: "175.207.0.242",
+			port: "8588",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Channel 19",
+			address: "175.207.0.69",
+			port: "8589",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
+		},
+		{
+			icon: "Scania.png",
+			english: "Scania",
+			name: "Cash Shop",
+			address: "175.207.0.10",
+			port: "8780",
+			interval: 5000,
+			values: [],
+			isMapleStoryGameServer: true,
+			rel: "스카니아"
 		}
 		],
 		// IE fails here, that's why the Korean text is wrapped in quotes.
@@ -4204,7 +4415,7 @@ var checker = {
 		1
 		],
 		applications: [
-		GameServer("Europe", [
+		GameServer("Europe", 1, [
 		{
 			icon: "Mushroom.png",
 			name: "Login",
@@ -4285,7 +4496,7 @@ var checker = {
 		18
 		],
 		applications: [
-		GameServer("Global", [
+		GameServer("Global", -8, [
 		{
 			icon: "Mushroom.png",
 			name: "Login",
@@ -4446,6 +4657,7 @@ var checker = {
 	complete: false,
 	icon: "Galicia.png",
 	short: "日本 | Japan",
+	timezone: false,
 	applications: [
 	]
 },
@@ -4460,7 +4672,7 @@ var checker = {
 	11
 	],
 	applications: [
-	GameServer("Korea", [
+	GameServer("Korea", 9, [
 	{
 		icon: "Mushroom.png",
 		name: "Login",
@@ -4556,7 +4768,7 @@ var checker = {
 	11
 	],
 	applications: [
-	GameServer("SEA", [
+	GameServer("SEA", 8, [
 	{
 		icon: "Mushroom.png",
 		name: "Login",
@@ -4656,7 +4868,8 @@ settings: {
 	showIPPort: ko.observable(readCookie("ShowIPPort") == "false" ? false : true),
 	timeout: ko.observable(readCookie("Timeout") ? readCookie("Timeout") : 5000),
 	showControls: ko.observable(false)
-}
+},
+currentTime: ko.observable('<span><i class="fa fa-cog fa-spin"></i> Checking server time...</span>')
 };
 
 checker.subSelection.subscribe(function(newValue) {
@@ -4699,11 +4912,22 @@ function GetEnglishIconNameForServer(serverName) {
 }
 
 function UpdateSelectedServers(parent, index, name) {
-	//console.log(parent, index, name);
+	//console.log(parent, index, name, clockTicking);
 	var name = name || checker.subSelection();
 
 	if (loadingTimers.length > index) {
 		window.clearInterval(loadingTimers[index]);
+	}
+
+	if (parent.name == "Game Servers" && !clockTicking) {
+		clockTicking = true;
+		setInterval(function() {
+			var d = new Date(),
+					o = d.getTimezoneOffset() / 60;
+
+			d.setHours(d.getHours() + o + parent.timeOffset);
+			checker.currentTime('<span><i class="fa fa-clock-o"></i> Server Time</span> ' + moment(d).format('h:mm:ss') + ' <span>' + moment(d).format('A') + '</span>');
+		}, 1000);
 	}
 
 	parent.selectedServers(loadingArr);
