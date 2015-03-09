@@ -292,6 +292,16 @@ div.wrapper h1 {
 	vertical-align: top;
 }
 
+div.wrapper h1 a {
+	color: #2196F3;
+	text-decoration: none;
+}
+
+div.wrapper h1 a:hover,
+div.wrapper h1 a:focus {
+	color: #0D47A1;
+}
+
 div.wrapper h1 img {
 	height: 32px;
 	width: 32px;
