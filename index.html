@@ -220,6 +220,9 @@
 				<p data-bind="text: description"></p>
 				<!-- /ko -->
 			</div>
+			<!-- ko if: name == "Game Servers" -->
+			<div class="server-time" data-bind="html: checker.currentTime(), 1000)"></div>
+			<!-- /ko -->
 			<div class="servers" data-bind="foreach: selectedServers()">
 				<!-- ko if: loading == true -->
 				<p class="loading"><i class="fa fa-cog fa-spin"></i> Loading, please wait...</p>
@@ -263,6 +266,7 @@
 	<div class="wrapper">
 		<footer id="footer">&copy; Copyright <a href="http://maple.watch">maple.watch</a> 2015<br>All Rights Reserved</footer>
 	</div>
+	<script type="text/javascript" src="moment.min.js"></script>
 	<script type="text/javascript" src="knockout.min.js"></script>
 	<script type="text/javascript" src="jquery.min.js"></script>
 	<script type="text/javascript" src="checker.js"></script>

@@ -285,6 +285,7 @@ p.loading {
 }
 
 div.wrapper h1 {
+	font-size: 28px;
 	font-weight: 300;
 	line-height: 30px;
 	margin: 24px 0 10px;
@@ -550,6 +551,28 @@ div.info span small {
 	font-size: 10px;
 	font-weight: 300;
 	margin: 0 0 0 1px;
+}
+
+div.server-time {
+	background: transparent;
+  color: #000;
+	font-size: 14px;
+	font-weight: 400;
+  height: 20px;
+  line-height: 20px;
+  padding: 4px;
+	position: absolute;
+  right: 0;
+  top: -28px;
+}
+
+div.server-time span {
+	font-size: 13px;
+	font-weight: 300;
+}
+
+div.server-time i {
+	color: #607D8B;
 }
 
 div.servers {
