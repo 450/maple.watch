@@ -4496,7 +4496,7 @@ var checker = {
 		18
 		],
 		applications: [
-		GameServer("Global", -7, [
+		GameServer("Global", -8, [
 		{
 			icon: "Mushroom.png",
 			name: "Login",
