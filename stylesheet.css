@@ -765,10 +765,18 @@ div.servers article a:hover {
 	text-decoration: underline;
 }
 
+article#footer-top {
+	text-align: center;
+}
+
+article#footer-top a img {
+	border: none;
+}
+
 footer#footer {
 	color: #546E7A;
 	font-size: 12px;
-	margin: 14px 0;
+	margin: 5px 0;
 	text-align: center;
 }
 
