@@ -172,7 +172,7 @@ var PingModel = function (servers) {
 				rel: "Login"
 			},{
 				icon: "StarPlanet.png",
-				name: "Star Planet 1",
+				name: "Star Planet 2",
 				address: "109.234.77.38",
 				port: "8592",
 				interval: 5000,
