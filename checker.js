@@ -4462,6 +4462,7 @@ var checker = {
 		],
 		[
 		servers.EMS.Login,
+		servers.EMS.StarPlanet,
 		servers.EMS.Kradia,
 		servers.EMS.Demethos,
 		servers.EMS.Supreme
