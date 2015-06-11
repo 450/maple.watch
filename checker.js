@@ -161,6 +161,25 @@ var PingModel = function (servers) {
 				isMapleStoryGameServer: true,
 				rel: "Login"
 			}],
+			StarPlanet:[{
+				icon: "StarPlanet.png",
+				name: "Star Planet 1",
+				address: "109.234.77.27",
+				port: "8591",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Login"
+			},{
+				icon: "StarPlanet.png",
+				name: "Star Planet 1",
+				address: "109.234.77.38",
+				port: "8592",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Login"
+			}],
 			Kradia: [{
 				icon: "Kradia.png",
 				name: "Channel 1",
