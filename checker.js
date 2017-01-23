@@ -4608,10 +4608,10 @@ var checker = {
 		name: "MapleStory Europe",
 		available: true,
 		complete: true,
-		icon: "Kradia.png",
+		icon: "Luna.png",
 		short: "EUROPE",
 		serverCount: [
-		4,
+		5,
 		1,
 		1
 		],
@@ -4622,6 +4622,12 @@ var checker = {
 			name: "Login",
 			english: false,
 			sub: ""
+		},
+		{
+			icon: "Luna.png",
+			name: "Luna",
+			english: false,
+			sub: "World"
 		},
 		{
 			icon: "Kradia.png",
