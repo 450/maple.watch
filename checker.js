@@ -180,6 +180,188 @@ var PingModel = function (servers) {
 				isMapleStoryGameServer: true,
 				rel: "Login"
 			}],
+			Luna: [{
+				icon: "Luna.png",
+				name: "Channel 1",
+				address: "109.234.74.70",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},
+			{
+				icon: "Luna.png",
+				name: "Channel 2",
+				address: "109.234.74.71",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 3",
+				address: "109.234.74.72",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 4",
+				address: "109.234.74.73",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 5",
+				address: "109.234.74.73",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 6",
+				address: "109.234.74.73",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 7",
+				address: "109.234.74.74",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 8",
+				address: "109.234.74.74",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 9",
+				address: "109.234.74.74",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 10",
+				address: "109.234.74.75",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 11",
+				address: "109.234.74.75",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 12",
+				address: "109.234.74.75",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 13",
+				address: "109.234.74.76",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 14",
+				address: "109.234.74.76",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 15",
+				address: "109.234.74.76",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 16",
+				address: "109.234.74.77",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 17",
+				address: "109.234.74.77",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 18",
+				address: "109.234.74.77",
+				port: "8587",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 19",
+				address: "109.234.74.78",
+				port: "8585",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			},{
+				icon: "Luna.png",
+				name: "Channel 20",
+				address: "109.234.74.78",
+				port: "8586",
+				interval: 5000,
+				values: [],
+				isMapleStoryGameServer: true,
+				rel: "Luna"
+			}],
 			Kradia: [{
 				icon: "Kradia.png",
 				name: "Channel 1",
@@ -4981,7 +5163,7 @@ function GetPingOffset() {
 function GetDefaultSubSelectionForVersion(version) {
 	switch (version) {
 		case 'EMS':
-		return 'Kradia';
+		return 'Luna';
 		case 'GMS':
 		return 'Login';
 		case 'KMS':
