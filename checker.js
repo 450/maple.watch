@@ -2070,7 +2070,7 @@ var servers = {
             return [{
                     icon: name + ".png",
                     name: "Channel 1",
-                    address: "8.31.99.184", // Verified as of Jan 28th 2017
+                    address: "8.31.99.187", // Verified as of Jan 28th 2017
                     port: "8585",
                     interval: 5000,
                     values: [],
@@ -2080,7 +2080,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 2",
-                    address: "8.31.99.184", // Verified as of Jan 28th 2017
+                    address: "8.31.99.187", // Verified as of Jan 28th 2017
                     port: "8586",
                     interval: 5000,
                     values: [],
@@ -2090,7 +2090,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 3",
-                    address: "8.31.99.235", // Verified as of Jan 28th 2017
+                    address: "8.31.99.236", // Verified as of Jan 28th 2017
                     port: "8585",
                     interval: 5000,
                     values: [],
@@ -2100,7 +2100,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 4",
-                    address: "8.31.99.235", // Verified as of Jan 28th 2017
+                    address: "8.31.99.236", // Verified as of Jan 28th 2017
                     port: "8586",
                     interval: 5000,
                     values: [],
@@ -2110,7 +2110,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 5",
-                    address: "8.31.99.185", // Verified as of Jan 28th 2017
+                    address: "8.31.99.159", // Verified as of Jan 28th 2017
                     port: "8585",
                     interval: 5000,
                     values: [],
@@ -2120,7 +2120,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 6",
-                    address: "8.31.99.185", // Verified as of Jan 28th 2017
+                    address: "8.31.99.159", // Verified as of Jan 28th 2017
                     port: "8586",
                     interval: 5000,
                     values: [],
@@ -2130,7 +2130,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 7",
-                    address: "8.31.99.240", // Verified as of Jan 28th 2017
+                    address: "8.31.99.245", // Verified as of Jan 28th 2017
                     port: "8585",
                     interval: 5000,
                     values: [],
@@ -2140,7 +2140,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 8",
-                    address: "8.31.99.240", // Verified as of Jan 28th 2017
+                    address: "8.31.99.245", // Verified as of Jan 28th 2017
                     port: "8586",
                     interval: 5000,
                     values: [],
@@ -2150,7 +2150,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 9",
-                    address: "8.31.99.186", // Verified as of Jan 28th 2017
+                    address: "8.31.99.160", // Verified as of Jan 28th 2017
                     port: "8585",
                     interval: 5000,
                     values: [],
@@ -2160,7 +2160,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 10",
-                    address: "8.31.99.186", // Verified as of Jan 28th 2017
+                    address: "8.31.99.160", // Verified as of Jan 28th 2017
                     port: "8586",
                     interval: 5000,
                     values: [],
@@ -2170,7 +2170,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 11",
-                    address: "8.31.99.244", // Verified as of Jan 28th 2017
+                    address: "8.31.99.246", // Verified as of Jan 28th 2017
                     port: "8585",
                     interval: 5000,
                     values: [],
@@ -2180,7 +2180,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 12",
-                    address: "8.31.99.244", // Verified as of Jan 28th 2017
+                    address: "8.31.99.246", // Verified as of Jan 28th 2017
                     port: "8586",
                     interval: 5000,
                     values: [],
@@ -2190,7 +2190,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 13",
-                    address: "8.31.99.151", // Verified as of Jan 28th 2017
+                    address: "8.31.99.154", // Verified as of Jan 28th 2017
                     port: "8585",
                     interval: 5000,
                     values: [],
@@ -2200,7 +2200,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 14",
-                    address: "8.31.99.151", // Verified as of Jan 28th 2017
+                    address: "8.31.99.154", // Verified as of Jan 28th 2017
                     port: "8586",
                     interval: 5000,
                     values: [],
@@ -2210,7 +2210,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 15",
-                    address: "8.31.99.151", // Verified as of Jan 28th 2017
+                    address: "8.31.99.154", // Verified as of Jan 28th 2017
                     port: "8587",
                     interval: 5000,
                     values: [],
@@ -2220,7 +2220,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 16",
-                    address: "8.31.99.152", // Verified as of Jan 28th 2017
+                    address: "8.31.99.155", // Verified as of Jan 28th 2017
                     port: "8585",
                     interval: 5000,
                     values: [],
@@ -2230,7 +2230,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 17",
-                    address: "8.31.99.152", // Verified as of Jan 28th 2017
+                    address: "8.31.99.155", // Verified as of Jan 28th 2017
                     port: "8586",
                     interval: 5000,
                     values: [],
@@ -2240,7 +2240,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 18",
-                    address: "8.31.99.182", // Verified as of Jan 28th 2017
+                    address: "8.31.99.155", // Verified as of Jan 28th 2017
                     port: "8587",
                     interval: 5000,
                     values: [],
@@ -2250,7 +2250,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 19",
-                    address: "8.31.99.153", // Verified as of Jan 28th 2017
+                    address: "8.31.99.156", // Verified as of Jan 28th 2017
                     port: "8585",
                     interval: 5000,
                     values: [],
@@ -2260,7 +2260,7 @@ var servers = {
                 {
                     icon: name + ".png",
                     name: "Channel 20",
-                    address: "8.31.99.153", // Verified as of Jan 28th 2017
+                    address: "8.31.99.156", // Verified as of Jan 28th 2017
                     port: "8586",
                     interval: 5000,
                     values: [],
@@ -2271,7 +2271,7 @@ var servers = {
                     icon: name + ".png",
                     name: "Cash Shop",
                     address: "8.31.99.194", // Verified as of Jan 28th 2017
-                    port: "8786",
+                    port: "8787",
                     interval: 5000,
                     values: [],
                     isMapleStoryGameServer: true,
@@ -2281,7 +2281,7 @@ var servers = {
                     icon: name + ".png",
                     name: "Monster Life",
                     address: "8.31.99.206", // Verified as of Jan 28th 2017
-                    port: "8586",
+                    port: "8587",
                     interval: 5000,
                     values: [],
                     isMapleStoryGameServer: true,
